@@ -1,0 +1,125 @@
+<view class="container p-bottom">
+	<view class="flow-list">
+		<!-- <view wx:if="{{goods_list2.length}}"> -->
+		<view wx:if="{{goods_list2.length}}">
+
+			<!-- <view class="cart-edit-wrap dis-flex flex-x-end">
+        <text wx:if="{{ action === 'complete' }}" catchtap="switchAction" class="f-30" data-action="edit">编辑</text>
+        <text wx:if="{{ action === 'edit' }}" catchtap="switchAction" class="f-30" data-action="complete">完成</text>
+      </view> -->
+			<view class="store-item" wx:for="{{goods_list2}}" wx:key="this" wx:for-index='AIndex'>
+				<!-- <view class="store-item-title acea-row row-middle bor_one">
+					<image style="width:40rpx; height:40rpx; margin-right:10rpx" src="{{item.file_path}}"></image>
+					<view class="">{{item.goods_id}}</view>
+				</view> -->
+
+
+				<block wx:for="{{item.data}}" wx:key="list">
+					<!-- data-index="{{index}}" -->
+					<view class="dish-item dis-flex flex-y-center" style="{{item.txtStyle}}">
+						<!-- 选择框 -->
+						<view class="dish-item-radio" catchtap="onChecked" data-index="{{ index }}" data-AIndex="{{AIndex}}">
+							<label class="radio">
+								<radio checked="{{ item.checked }}"></radio>
+							</label>
+						</view>
+						<view class="dish-item-wrp dis-flex flex-box">
+							<!-- 商品图片 -->
+							<navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+								<view class="dish-item-pic">
+									<image mode="aspectFill" class="image" src="{{ item.image.file_path }}"></image>
+								</view>
+							</navigator>
+							<!-- 商品信息 -->
+							<view class="dish-item-info flex-box">
+								<navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+									<view class="goods-name">
+										<text class="twolist-hidden f-28 col-3">{{item.goods_name}}</text>
+									</view>
+									<view class="goods-attr dis-flex">
+										<text class="col-7 f-24 ">{{item.content}}</text>
+									</view>
+								</navigator>
+								<view class="acea-row row-middle m-top20">
+									<!-- 商品价格 -->
+									<view class="wx-goods_price dis-flex flex-y-center">
+										<!-- <text wx:if="{{ item.is_user_grade }}" class="dish-item-money">￥{{ item.grade_goods_price }}</text>
+										<text wx:else class="dish-item-money">￥{{ item.goods_price }}</text> -->
+										<text class="dish-item-money">库存：{{ item.good_num }}/{{item.num}}</text>
+									</view>
+									<!-- 数量选择器 -->
+									<view class="select-number m-top20" >
+										<button catchtap="onSubCount" class="default {{item.pagenumber > 1 ? '' : 'disabled' }}" data-AIndex="{{AIndex}}" data-index="{{index}}" data-sku-id="{{item.goods_sku_id}}" type="default" data-msg="{{item.pagenumber}}">-</button>
+										<input bindinput="import" disabled="{{true}}" type="number" value="{{item.pagenumber}}"></input>
+										<button catchtap="onAddCount" class="default {{ item.pagenumber > item.goods_num ? 'disabled' : '' }}" data-AIndex="{{AIndex}}" data-index="{{index}}" data-sku-id="{{item.goods_sku_id}}" type="default" data-msg="{{item.pagenumber}}" data-goods_id='{{item.goods_id}}'>+</button>
+									</view>
+								</view>
+								<!-- 删除按钮 -->
+								<!-- <view catchtap="del" class="flow-dete" data-goods-id="{{item.goods_id}}" data-sku-id="{{item.goods_sku_id}}">
+                <text class="iconfont icon-lajixiang"></text>
+              </view> -->
+							</view>
+						</view>
+					</view>
+				</block>
+			</view>
+			<!-- 底部操作栏 -->
+			<!-- <view class="cart-tab-wrp">
+        <view class="cart-item-total cart-tab-item dis-flex flex-y-center">
+          <view class="checked-all">
+            <label catchtap="onCheckedAll" class="radio dis-flex flex-y-center">
+              <radio class="margin-right: 10rpx;" checked="{{ checkedAll }}" color="#ff495e"></radio>
+              <text class="f-28">全选</text>
+            </label>
+          </view>
+          <view wx:if="{{ action === 'complete' }}" class="cart-item-total-price dis-flex">
+            <text class="f-28 col-m">合计：￥{{cartTotalPrice}}</text>
+          </view>
+        </view> -->
+			<!-- <view class="cart-tab-item_1">
+          <view wx:if="{{ action === 'complete' }}" catchtap="submit" class="cart-tab-item-btn">去结算</view>
+          <view wx:if="{{ action === 'edit' }}" catchtap="onDelete" class="cart-tab-item-btn">删除</view>
+        </view> -->
+			<!-- </view> -->
+			<view class=" acea-row row-between row-middle pad_leri" style="width:95%;height:150rpx;margin-top:150rpx;margin:0 auto;background:#ffe0ca" wx:if="{{address.address_id}}" bindtap="goaddress">
+				<view class="" style="height:100%;">
+					<view class="" style="height:50%">
+						<view class="acea-row row-middle" style="height:100%">
+							<text style="padding-right:10rpx">收货人：{{address.name}}</text>
+
+							<text>电话号码：{{address.phone}}</text>
+						</view>
+
+					</view>
+					<view class=" acea-row row-middle" style="height:50%">
+						<text>送至：{{address.region.province}} {{address.region.city}} {{address.region.region}} {{address.detail}}</text>
+					</view>
+
+				</view>
+				<text class="sharp-more-arrow iconfont icon-xiangyoujiantou "></text>
+			</view>
+			<view class=" btn" style="width:95%;margin:20rpx auto;" wx:if="{{address.address_id}}">
+
+				<button style="background:#ff6b00; color: white;border-radius:30rpx" bindtap="pickgoods">
+					立即提货
+				</button>
+
+			</view>
+			<view class=" acea-row row-between row-middle pad_leri" style="width:95%;height:150rpx;margin-top:60rpx;margin:0 auto;background:#ffe0ca" bindtap="goaddress" wx:else>
+				    请选择地址  
+						<text class="sharp-more-arrow iconfont icon-xiangyoujiantou "></text>
+			</view>
+		</view>
+		<view wx:else>
+			<view class="yoshop-notcont">
+				<text class="iconfont icon-wushuju"></text>
+				<text class="cont">亲，我的库存还没有商品哦</text>
+				<!-- <view catchtap="goShopping" class="flow-btn-min">去购物</view> -->
+			</view>
+		</view>
+	</view>
+
+
+
+	<!-- <footer pageid="4" style="position:fixed;bottom:0rpx; left:0rpx;z-index:10000;"></footer> -->
+</view>

@@ -1,0 +1,36 @@
+<view class="container b-f mg_bot">
+	<view class="top-bg"></view>
+	<view style="height:88rpx;"></view>
+	<view style="height:88rpx;width:750rpx; position:relative;" class="acea-row row-center-wrapper ">
+		<view class="acea-row" style="position:absolute;left:0rpx">
+			<image src="./../../images/icon_top_w_address.png" style="height:36rpx;width:30rpx;margin-left:30rpx;margin-right:10rpx;"></image>
+			<text style="font-size:30rpx;color:#FFF;">{{district}}</text>
+		</view>
+		<view style="color:{{page.style.titleTextColor}};font-size:40rpx;font-weight:600;color:white">{{page.params.title}}</view>
+	</view>
+
+	<!-- <navigator url="../goods/index?goods_id=1&referee_id=10336&register_code=Y8QN72"style="height:88rpx; position:relative;">购买</navigator> -->
+	<!-- <navigator url="../share/apply?register_code=YRJ6W4&nickName=vvv"style="height:88rpx; position:relative;">邀请好友</navigator> -->
+	<!-- <navigator url="../goods/index?goods_id=10039&referee_id=10038&register_code=1RXXES"style="height:88rpx; position:relative;">购买</navigator> -->
+	<!-- <navigator url="../apply/apply?type=4"style="height:88rpx; position:relative;">申请</navigator> -->
+	<!-- <navigator url="../user/userInfor/shiming"style="height:88rpx; position:relative;">申请</navigator> -->
+	<!-- <navigator url="../room/anchor?room_status=1&im_id=231723"style="height:88rpx; position:relative;">主播直播间</navigator> -->
+	<!-- <navigator url="../school/comment/comment"style="height:88rpx; position:relative;">提交</navigator> -->
+
+	<!-- <navigator url="../room/index?room_status=1&im_id=231723"style="height:88rpx;position:relative;">普通直播间</navigator> -->
+
+	<!-- DIY组件 -->
+	<diy-component diyItems="{{ items }}"></diy-component>
+
+	<!-- 底线 -->
+	<!-- <view class="title-footer p-r">
+    <text class="f-24 col-9 cont">我是有底线的</text>
+    <view class="hr"></view>
+  </view> -->
+	<view  style="width:100%;height:30rpx;display:flex;justify-content:center;align-items:center;background:#f8f8f8">
+
+		<text class=" acea-row row-center" style="width:100%;background:#f8f8f8;margin-top:20rpx;color:gray"> 亲，没有更多惹</text>
+
+	</view>
+	<footer pageid="1" style="position:fixed;bottom:0rpx; left:0rpx;z-index:10000;"></footer>
+</view>

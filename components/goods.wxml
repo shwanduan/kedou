@@ -1,0 +1,2 @@
+
+<image src="/images/btn_gouwudai.png" data-wpy-evt="22-0" bind:tap="_proxy" class="goods"></image>

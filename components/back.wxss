@@ -1,0 +1,7 @@
+                   
+.room-back {
+    width: 22px;
+    height: 27px;
+    margin-bottom: 20rpx;
+}
+

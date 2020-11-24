@@ -1,0 +1,48 @@
+<view class="room-bottom">
+
+	<goods bind_init="_initComponent" data-wpy-evt="12-0" bind:showgoods="_proxy" class="goods"></goods>
+
+
+	<message bind_init="_initComponent" isTimReady="{{isTimReady}}" data-wpy-evt="12-1" bind:send-message="_proxy" class="message"></message>
+
+
+	<!-- <gift bind_init="_initComponent" data-wpy-evt="12-2" bind:showGift="_proxy" class="gift"></gift> -->
+	<view class="acea-row" data-wpy-evt="12-9" bind:tap="_proxy" style="vertical-align: middle;display:inline-block;width:80rpx;">
+		<view class="acea-row row-center-wrapper">
+			<text>...</text>
+		</view>
+		<view class="acea-row row-center">更多</view>
+
+	</view>
+	<block wx:if="{{showMore}}">
+		<view class="close" data-wpy-evt="12-8" bind:tap="_proxy"></view>
+		<view class="more-box acea-row row-column">
+			<view class="title acea-row " style="margin-bottom:40rpx;">
+				<view style="width:6rpx; margin-right:12rpx; height:28rpx;background:linear-gradient(315deg,rgba(255,0,67,1) 0%,rgba(255,112,50,1) 100%);"></view>
+				<view>更多</view>
+			</view>
+			<view class=" more-list">
+
+				<view class="acea-row row-column row-center editgoods" wx:if="{{isAnchor}}" data-wpy-evt="12-6" bind:tap="_proxy" style="vertical-align: middle;display:inline-block;width:80rpx;">
+					<view class="acea-row row-center-wrapper" style="height:50rpx;background:rgba(40,40,40,0.28); ">
+						<image src="../images/btn_live_add_1.png" style="width:38rpx;height:34rpx;"></image>
+					</view>
+					<view class="acea-row row-center">添加</view>
+				</view>
+				<view class="acea-row row-column row-center editgoods" wx:if="{{isAnchor}}" data-wpy-evt="12-7" bind:tap="_proxy" style="vertical-align: middle;display:inline-block;">
+					<view class="acea-row row-center-wrapper" style="height:50rpx; ">
+						<image src="../images/btn_zhibo_more_tc1.png" style=" width:42rpx;height:50rpx;"></image>
+					</view>
+					<view class="acea-row row-center">发红包</view>
+
+				</view>
+			</view>
+		</view>
+	</block>
+
+	<like bind_init="_initComponent" wx:if="{{!isAnchor}}" data-wpy-evt="12-3" bind:like="_proxy" class="like"></like>
+
+
+
+
+</view>

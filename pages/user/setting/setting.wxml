@@ -1,0 +1,24 @@
+<!--pages/user/setting/setting.wxml-->
+<view class="container">
+
+	<view class="nav-list">
+		<!-- <navigator class="nav-item acea-row row-between-wrapper">
+<view>清除缓存</view>
+<image class="btn-next" src="../../../images/btn_next_xi_gray1.png"></image>
+</navigator> -->
+		<navigator url="./women" class="nav-item acea-row row-between-wrapper">
+			<view>关于我们</view>
+			<text></text>
+			<image class="btn-next" src="../../../images/btn_next_xi_gray1.png"></image>
+		</navigator>
+		<view class="nav-item acea-row row-between-wrapper">
+			<view>版本说明</view>
+			<text>{{version}}</text>
+			<!-- <image class="btn-next" src="../../../images/btn_next_b1.png"></image> -->
+		</view>
+		<!-- <navigator class="nav-item acea-row row-between-wrapper">
+<view>好评鼓励</view>
+<image class="btn-next" src="../../../images/btn_next_xi_gray1.png"></image>
+</navigator> -->
+	</view>
+</view>

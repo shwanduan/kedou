@@ -1,0 +1,54 @@
+<!--pages/user/like/livede.wxml-->
+
+<block wx:if="{{list.length}}">
+   <view class=" acea-row row-column-between row-between" style="width:100%;height:200rpx;background:white;border-radius:10px;margin-top:20rpx;box-shadow:0px 10px 10px #f0f0f0; padding:0 20rpx"  wx:for="{{list}}" wx:key="{{item.user_id}}" >
+	<view class=" acea-row row-between row-middle" style="flex:1">
+		<text class="acea-row row-middle" style="color:#333333">
+            {{item.nickName}}
+         </text>
+		<text style="color:#999999">
+             销售数量 {{item.sell_out}}
+         </text>
+	</view>
+	<view class=" acea-row row-between " style="flex:1;color:#b6b6b6">
+		<text>
+             {{item.mobile}}
+         </text>
+		<text style="color:#fe2323">
+            ￥{{item.balance}}
+         </text>
+	</view>
+</view>
+</block>
+
+
+<block wx:else>
+ <view  class="yoshop-notcont" style="margin-top:130px;">
+	<view class="img">
+		<image mode="aspectFit" src="../../../images/no_content.png"></image>
+	</view>
+	<text class="cont">暂无信息</text>
+</view>
+</block>
+
+
+
+
+<!-- <view class=" acea-row row-column-between row-between" style="width:100%;height:200rpx;background:white;border-radius:10px;margin-top:20rpx;box-shadow:0px 10px 10px #f0f0f0; padding:0 20rpx">
+     <view class=" acea-row row-between row-middle" style="flex:1">
+         <text class="acea-row row-middle" style="color:#333333">
+            仙人球
+         </text>
+         <text style="color:#999999">
+             销售数量 77
+         </text>
+     </view>
+     <view class=" acea-row row-between " style="flex:1;color:#b6b6b6">
+         <text>
+            17805428614
+         </text>
+         <text style="color:#fe2323">
+            ￥123
+         </text>
+     </view>
+</view> -->

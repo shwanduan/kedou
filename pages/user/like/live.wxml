@@ -1,0 +1,67 @@
+<!--pages/user/like/live.wxml-->
+<!-- <text>pages/user/like/live.wxml</text> -->
+<!-- <view class="select-title acea-row row-between-wrapper">
+ <block wx:for="{{titleList}}" wx:key="title">
+	<view bindtap="selectType" data-type="{{item.type}}" class="{{item.type==selectType?'active':''}}" >{{item.title}}</view>
+</block> 
+</view> -->
+<!-- <block class="" wx:if="{{is_switch==1}}">
+	<view class="room-list">
+		<view class="room-item acea-row row-between-wrapper" wx:for="{{list}}" wx:key="room">
+			<view class="acea-row">
+				<image src="{{item.share_img}}" style="width:81rpx;height:81rpx;margin-right:40rpx;"></image>
+				<view class="acea-row row-column">
+					<view>{{item.anchor_name}}</view>
+					<view style="font-size:24rpx;">
+						<text>{{item.number}}粉丝 </text>
+						<text>|</text>
+						<text>店铺名</text>
+					</view>
+				</view>
+
+
+			</view>
+			<view class="acea-row row-center-wrapper" style="width:136rpx;height:48rpx;border-radius:24rpx;border:2rpx solid rgba(255,0,66,1);color:rgba(255,0,66,1);">
+				已关注
+			</view>
+		</view>
+
+
+	</view>
+	<view wx:if="{{list.length==0}}" class="acea-row row-center-wrapper b-f">
+		还没有关注任何主播
+		<view bindtap="toLiveList">
+			去点个关注
+		</view>
+	</view>
+</block> -->
+
+<view style="width:100%;background-color:white;display:flex;flex-direction:column;color:#333333">
+      <view class="" style="flex:1;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f8f8f8;padding:20rpx" wx:for="{{list}}" wx:for-item="item" wx:key="grade_id" bindtap="goDetail" data-id='{{item.grade_id}}'>
+			     <view style="width:80px;height:100%;display:flex;align-items:center;">{{item.name}}</view>
+					 <view style="">
+					   <text style="font-size:17px">{{item.user_num}}人</text>
+						 <!-- <text style="color:#b1b1b1;padding-left:8px;font-size:25px" class="iconfont icon_arrow right"></text>    -->
+						 <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+						  <!-- <text class="iconfont icon-arrow-right"></text> -->
+					 </view>
+			
+			</view>
+			 <!-- <view class="" style="flex:1;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f8f8f8;padding-left:15px; padding-right:15px;">
+			     <view style="width:80px;height:100%;display:flex;align-items:center">总代理</view>
+					 <view style="">
+					   <text>3人</text>
+						 <text style="color:#b1b1b1;padding-left:8px;font-size:20px">></text>   
+					 </view>
+			
+			</view>
+			 <view class="" style="flex:1;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f8f8f8;padding-left:15px; padding-right:15px;">
+			     <view style="width:80px;height:100%;display:flex;align-items:center;">区级代理</view>
+					 <view style="">
+					   <text>3 人</text>
+						 <text style="color:#b1b1b1;padding-left:8px;font-size:20px">></text>   
+					 </view>
+			
+			</view> -->
+		
+</view>

@@ -1,0 +1,69 @@
+/* pages/room/anchor.wxss */
+@import "/pages/room/index.wxss";
+@import "/pages/category/list.wxss";
+
+.select-list {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  z-index: 1001;
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+}
+
+.btn-area {
+  position: absolute;
+  bottom: 30rpx;
+  right: 20rpx;
+  z-index: 888;
+}
+
+.pay-select .row-center-wrapper {
+  width: 160rpx;
+  height: 48rpx;
+  border-radius: 24px;
+}
+
+.pay-select .row-center-wrapper:first-of-type {
+  margin-right: 40rpx;
+}
+
+.active {
+  border: 2rpx solid rgba(224, 32, 32, 1);
+}
+
+.red-packet-box {
+  padding: 40rpx 30rpx;
+}
+
+.red-packet-box input {
+  text-align: right;
+}
+
+.red-packet-box .acea-row {
+  height: 66rpx;
+}
+
+.btn-send-red {
+  margin-top: 50rpx;
+  width: 540rpx;
+  height: 110rpx;
+  background: linear-gradient(315deg, rgba(255, 0, 67, 1) 0%, rgba(255, 112, 50, 1) 100%);
+  border-radius: 55rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  line-height: 110rpx;
+}
+.close{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

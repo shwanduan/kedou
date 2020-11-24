@@ -1,0 +1,79 @@
+                   
+.coupon {
+    width: 640rpx;
+    height: 1000rpx;
+    position: relative;
+    margin: 0 auto;
+    z-index: 1001;
+}
+.coupon-img {
+    width: 640rpx;
+    height: 1000rpx;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.info {
+    width: 640rpx;
+    height: 1000rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.title {
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 40rpx;
+    margin-top: 47rpx;
+}
+.desc {
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 50rpx;
+    margin-top: 31rpx;
+}
+.btn {
+    height: 64rpx;
+    width: 316rpx;
+    background: #FFFFFF;
+    border-radius: 39.5rpx;
+    border-radius: 39.5rpx;
+    padding: 0;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #F16161;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 64rpx;
+    margin-top: 46rpx
+}
+.close{
+    width: 52rpx;
+    height: 52rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    z-index: 2
+}
+@import "./../pages/user/coupon/coupon.wxss";
+@import './../app.wxss';
+.time .pay-line{
+    font-size: 20rpx;
+}
+.coupon-list .coupon-item .item-wrapper{
+    border-radius: 16rpx;
+}
+.coupon-list .coupon-item .item-wrapper .tip {
+    border-radius: 16rpx 0 0 16rpx ;
+}
+.coupon-list .coupon-item .item-wrapper .tip .money{
+    font-size: 36rpx;
+}

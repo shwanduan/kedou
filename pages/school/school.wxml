@@ -1,0 +1,185 @@
+<!--pages/school/school.wxml-->
+<!-- <text>pages/school/school.wxml</text> -->
+<view class="container b-f">
+	<view class="top-bg"></view>
+	<view style="height:88rpx;"></view>
+	<view style="height:88rpx;width:750rpx; position:relative;" class="acea-row row-center-wrapper ">
+		<image src="./../../images/btn_top_back_w.png" style="height:36rpx;width:24rpx;position:absolute;left:30rpx;"></image>
+		<!-- <view class="acea-row acea-row row-center-wrapper" style="position:absolute;left:0rpx">
+			<text style="font-size:36rpx; font-weight:600; color:#FFF;"></text>
+		</view> -->
+		<view style="color:#FFF;font-size:40rpx;font-weight:600;">蝌蚪商学院</view>
+
+	</view>
+	<view class="select-title acea-row row-around row-middle">
+		<view class="title-item {{selectType==1?'active':''}} " bindtap="selectType" data-type="1">
+			<view class="title-item-text">学院头条</view>
+			<view class="title-item-bottom acea-row row-center-wrapper">
+				<image class="dangqian" src="../../images/dangqian.png" wx:if="{{selectType==1}}"></image>
+			</view>
+		</view>
+		<view class="title-item {{selectType==2?'active':''}} " bindtap="selectType" data-type="2">
+			<view class="title-item-text">学院微聊</view>
+			<view class="title-item-bottom acea-row row-center-wrapper">
+				<image class="dangqian" src="../../images/dangqian.png" wx:if="{{selectType==2}}"></image>
+			</view>
+		</view>
+		<view class="title-item  {{selectType==3?'active':''}} " bindtap="selectType" data-type="3">
+			<view class="title-item-text">学院报名</view>
+			<view class="title-item-bottom acea-row row-center-wrapper">
+				<image class="dangqian" src="../../images/dangqian.png" wx:if="{{selectType==3}}"></image>
+			</view>
+		</view>
+		<view class="title-item {{selectType==4?'active':''}} " bindtap="selectType" data-type="4">
+			<view class="title-item-text">学院推荐</view>
+			<view class="title-item-bottom acea-row row-center-wrapper">
+				<image class="dangqian" src="../../images/dangqian.png" wx:if="{{selectType==4}}"></image>
+			</view>
+		</view>
+	</view>
+	<block wx:if="{{selectType==1}}">
+
+		<view class="lump-list-box acea-row row-left">
+			<block wx:for="{{lumpList}}" wx:key="lump">
+				<view class="lump-item " hover-class="lump-item-hover" bindtap="selectLump" data-id="item.category_id">{{item.name}}</view>
+
+			</block>
+		</view>
+		<view class="news-list">
+			<block wx:for="{{newsList.data}}" wx:key="newsList">
+				<view class="news-item" data-id="{{item.article_id}}" bindtap="toDetails" data-type="news">
+					<view class="news-title">{{item.article_title}}</view>
+					<view class=" news-content">
+						<image src="{{item.image.file_path}}" style="width:650rpx" mode="aspectFit"></image>
+						<view class="acea-row row-between-wrapper">
+							<view>
+								<image src="../../images/icon_sxy_24_1.png" style="width:24rpx;height:24rpx;margin-right:16rpx;"></image>
+								<text class="time">{{item.view_time}}</text>
+							</view>
+							<view>
+								<image src="../../images/icon_liulianliang.png" style="width:24rpx;height:16rpx;margin-right:16rpx;"></image>
+								<text class="time">{{item.show_views}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+	<block wx:elif="{{selectType==2}}">
+		<view class="weiliao">
+			<block wx:for="{{weiliaoList.data}}" wx:key="weiliao">
+				<view class="weiliao-item" catchtap="toChat" data-id="{{item.id}}">
+					<view class="weiliao-head acea-row row-between-wrapper">
+						<view class="acea-row">
+							<image class="weiliao-head-img" src="{{item.userInfo.avatarUrl}}"></image>
+							<view class="acea-row row-column row-center">
+								<view class="name">{{item.userInfo.nickName}}</view>
+								<view class="time">{{item.create_time}}</view>
+							</view>
+						</view>
+						<view class="follow" catchtap="followUser" data-id="{{item.user_id}}" data-follow="{{item.is_follow}}">
+							<view class="already acea-row row-center-wrapper" wx:if="{{item.is_follow==1}}">
+								已关注
+							</view>
+							<image src="../../images/btn_follow.png" mode="" wx:else></image>
+						</view>
+					</view>
+					<view class="weiliao-title">{{item.content}}</view>
+					<view class="weiliao-img-list">
+						<block wx:for="{{item.imgs}}" wx:key="weiliaoimg">
+							<image src="{{item}}" class="weiliao-img" mode="aspectFill"></image>
+						</block>
+					</view>
+					<view>
+						<!-- <video></video> -->
+					</view>
+					<view class="weiliao-footer acea-row row-between-wrapper">
+						<view class="acea-row row-center-wrapper" style="flex:1">
+							<image class="weiliao-footer-img" src="../../images/btn_sxy_32_1.png"></image>
+							<text>{{item.forward_count}}</text>
+						</view>
+						<view class="acea-row row-center-wrapper" style="flex:1">
+							<image class="weiliao-footer-img" src="../../images/btn_sxy_32_2.png"></image>
+							<text>{{item.comment_count}}</text>
+						</view>
+						<view class="acea-row row-center-wrapper" style="flex:1" catchtap="like" data-id="{{item.id}}" data-like="{{item.is_like}}">
+							<image class="weiliao-footer-img" src="../../images/btn_sxy_32_3.png" wx:if="{{item.is_like==0}}"></image>
+							<image class="weiliao-footer-img" src="../../images/btn_sxy_33_3.png" wx:else></image>
+							<text>{{item.like_count}}</text>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+		<navigator url="./comment/comment" style="width:100%" class="acea-row row-center-wrapper">
+			<image src="../../images/btn_fb.png" style="width:120rpx; height:120rpx; position:fixed; bottom:40rpx;"></image>
+		</navigator>
+	</block>
+	<block wx:elif="{{selectType==3}}">
+		<view class="sign-list">
+			<block wx:for="{{signLists.data}}" wx:key="signLists">
+				<view class="sign-item acea-row row-between" data-id="{{item.article_id}}" bindtap="toDetails" data-type="sign">
+					<view class="sign-item-left">
+						<image class="sign-item-image" src="{{item.image.file_path}}"></image>
+					</view>
+					<view class="sign-item-right acea-row row-column">
+						<view class="sign-item-title">
+							{{item.article_title}}
+						</view>
+						<view class="sign-item-content">
+							薇娅能卖火箭你也可以，不信来试试怎么卖出去，赶紧来啊啊啊
+						</view>
+						<view class="acea-row">
+							<view class="sign-item-name">
+								{{item.category.name}}
+							</view>
+						</view>
+						<view class="acea-row row-between-wrapper">
+							<view>
+								<image src="../../images/icon_sxy_24_1.png" style="width:24rpx;height:24rpx;margin-right:16rpx;"></image>
+								<text class="time">{{item.view_time}}</text>
+							</view>
+							<view>
+								<image src="../../images/icon_liulianliang.png" style="width:24rpx;height:16rpx;margin-right:16rpx;"></image>
+								<text class="time">{{item.show_views}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+	<block wx:else>
+	<view class="weiliao">
+			<block wx:for="{{recommendList.data}}" wx:key="weiliao">
+				<view class="weiliao-item" catchtap="toChat" data-id="{{item.id}}">
+					<view class="weiliao-head acea-row row-between-wrapper">
+						<view class="acea-row">
+							<image class="weiliao-head-img" src="{{item.userInfo.avatarUrl}}"></image>
+							<view class="acea-row row-column row-center">
+								<view class="name">{{item.userInfo.nickName}}</view>
+								<view class="time">{{item.create_time}}</view>
+							</view>
+						</view>
+						<view class="follow" catchtap="followUser" data-id="{{item.user_id}}" data-follow="{{item.is_follow}}">
+							<view class="already acea-row row-center-wrapper" wx:if="{{item.is_follow==1}}">
+								已关注
+							</view>
+							<image src="../../images/btn_follow.png" mode="" wx:else></image>
+						</view>
+					</view>
+					<view class="weiliao-title">{{item.content}}</view>
+					<view class="weiliao-img-list">
+						<block wx:for="{{item.imgs}}" wx:key="weiliaoimg">
+							<image src="{{item}}" class="weiliao-img" mode="aspectFill"></image>
+						</block>
+					</view>
+					<view>
+						<!-- <video></video> -->
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+</view>

@@ -1,0 +1,2 @@
+/* pages/user/userInfor/change-name.wxss */
+@import "./userInfor.wxss";

@@ -1,0 +1,17 @@
+<!--pages/notice_detail/index.wxml-->
+<view class="box acea-row  pad_left_right">
+	<view class="box row-center acea-row font_23">
+		{{article_title}}
+	</view>
+
+
+	<view class="box pad_top">
+		<rich-text nodes="{{article_content}}">
+
+		</rich-text>
+	</view>
+
+	<view class="box flex_end pad_top font_color">
+		{{create_time}}
+	</view>
+</view>

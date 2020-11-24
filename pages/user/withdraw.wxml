@@ -1,0 +1,59 @@
+<!--pages/user/withdraw.wxml-->
+<view wx:if="{{show}}">
+	<view class="" style="width:95%;height:400rpx;margin:0 auto;display:flex;flex-direction:column;">
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle"  value="card">银行卡号</text>
+			<!-- <input class="" placeholder="请输入银行卡账号" type="number"  style="height:100%" bindblur="cardfuck"/> -->
+			<text>{{list.balance_code}}</text>
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">银行名称</text>
+			<!-- <input class="" placeholder="请输入银行名称" type="text" style="height:100%" bindblur="namefuck" /> -->
+			<text>
+			  {{list.balance_name}}
+			</text>
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">持卡人信息</text>
+			<!-- <input class="" placeholder="请输入持卡人信息" type="text" style="height:100%" bindblur="userfuck" /> -->
+			<text>
+			  {{list.balance_user}}
+			</text>
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">开户行信息</text>
+			<!-- <input class="" placeholder="请输入开户行信息" type="text" style="height:100%" bindblur="bankinfofuck" /> -->
+			<text>
+			  {{list.balance_detail}}
+			</text>
+		</view>
+	</view>
+
+</view>
+
+<view wx:else>
+	<view class="" style="width:95%;height:400rpx;margin:0 auto;display:flex;flex-direction:column;">
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle"  value="card">银行卡号</text>
+			<input class="" placeholder="请输入银行卡账号" type="number" style="height:100%" bindblur="cardfuck" />
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">银行名称</text>
+			<input class="" placeholder="请输入银行名称" type="text" style="height:100%" bindblur="namefuck" />
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">持卡人信息</text>
+			<input class="" placeholder="请输入持卡人信息" type="text" style="height:100%" bindblur="userfuck" />
+		</view>
+		<view style="flex:1;" class=" acea-row row-between row-middle bor_bto">
+			<text style="height:100%" class="acea-row row-middle">开户行信息</text>
+			<input class="" placeholder="请输入开户行信息" type="text" style="height:100%" bindblur="bankinfofuck" />
+		</view>
+	</view>
+
+
+	<view style="width:95%;height:100rpx;margin:0 auto;margin-top:200rpx" class=" ">
+		<button bindtap="add" style="background:#ff6b00;color:white;border-radius:20px;height:100%;width:100%;" class="acea-row row-center row-middle">确定</button>
+	</view>
+
+</view>

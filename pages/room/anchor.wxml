@@ -1,0 +1,174 @@
+<view class="room-bg">
+
+	<view class="room-content">
+
+		<room-header bind_init="_initComponent" liveconfig="{{liveconfig}}" fans="{{ fans }}" isAnchor="{{isAnchor}}" userInfo="{{ userInfo }}" groupinfo="{{ groupInfo }}" ownerInfo="{{ ownerInfo }}" data-wpy-evt="5-0" bind:attention="_proxy" bind:coupon="_proxy" bind:quitGroup="_proxy"></room-header>
+
+
+		<chatroom bind_init="_initComponent" message="{{ messageQueen }}" class="chatroom"></chatroom>
+
+
+		<room-bottom bind_init="_initComponent"showMore="{{showMore}}" showMore="{{showMore}}" isTimReady="{{isTimReady}}" isAnchor="{{isAnchor}}" data-wpy-evt="5-2" bind:send-message="_proxy" bind:more="_proxy" bind:closeMore="_proxy" bind:showSendRed="_proxy"  bind:like="_proxy" bind:showGift="_proxy" bind:showgoods="_proxy" bind:editgoods="_proxy" class="room-bottom"></room-bottom>
+
+
+		<gifts bind_init="_initComponent" animation="{{ animation }}" data-wpy-evt="5-7" bind:hideGift="_proxy" bind:sendgift="_proxy" class="gifts"></gifts>
+
+
+		<goods-list bind_init="_initComponent" animation="{{ animation2 }}" goods="{{ goods }}" data-wpy-evt="5-9" bind:hidegoods="_proxy" bind:buy="_proxy" class="goodslist"></goods-list>
+		<!-- style="  position: absolute;width: 100vw;height:100vh;bottom:0 ;z-index: 1008;left: 0;" -->
+		<view >
+		<!-- <button data-wpy-evt="51-0"   bind:tap="_proxy" class="btn-send-red"> 发红包</button> -->
+		</view>
+		<view class="sendRedPacket goodslist" animation="{{ animation3 }}" >
+			<view data-wpy-evt="17-0" catch:tap="_proxy" class="close">
+			</view>
+			<view class="red-packet-box" style="position :absolute; bottom:0rpx; left:0rpx ;width:750rpx;height:528rpx;background:rgba(255,255,255,1);border-radius:23rpx 23rpx 0px 0px;">
+				<view class="title">红包</view>
+				<!-- <form  bindsubmit="_onTargetGoods" report-submit="true"> -->
+				<view class="acea-row row-between-wrapper">
+					<view>总金额</view>
+					<view class="acea-row">
+						<!-- <input value="{{packetMoney}}" ></input><text>元</text> -->
+						<!-- adjust-position="{{false}}"  -->
+						<input value="{{packetMoney}}" data-name="money" placeholder="请输入红包金额" placeholder-style="color:#fff;font-size:12px" type="text" data-wpy-evt="50-0" bind:input="_proxy"></input><text>元</text>
+					</view>
+				</view>
+				<view class="acea-row row-between-wrapper">
+					<view>红包个数</view>
+					<view class="acea-row">
+						<!-- <input value="{{packetNumber}}"></input><text>个</text> -->
+						<input value="{{packetNumber}}" data-name="number" placeholder="请输入红包金额" placeholder-style="color:#fff;font-size:12px" type="text" data-wpy-evt="50-0" bind:input="_proxy" bind:keyboardheightchange="_proxy" bind:blur="_proxy"></input><text>个</text>
+					</view>
+				</view>
+				<view class="acea-row row-between-wrapper pay-select">
+				<view class=""> 支付方式</view>
+				<view class="acea-row">
+					<view data-wpy-evt="50-2" data-type="20" bind:tap="_proxy" class="acea-row row-center-wrapper {{payType==20?'active':''}}">微信支付</view>
+					<view data-wpy-evt="50-2" data-type="10" bind:tap="_proxy" class=" acea-row row-center-wrapper {{payType==10?'active':''}}">余额支付</view>
+				</view>
+				</view>
+				<view class="acea-row row-center-wrapper">
+				<button data-wpy-evt="50-1" bind:tap="_proxy" class="btn-send-red">发布红包</button>
+				</view>
+				<!-- </form> -->
+			</view>
+		</view>
+
+		<gift-animation bind_init="_initComponent" wx:if="{{hasgift}}" avatar="{{giftAvatar}}" nick="{{giftNick}}" data-wpy-evt="5-11" bind:hideani="_proxy" class="gift-animation"></gift-animation>
+
+
+		<coupon bind_init="_initComponent" wx:if="{{hascoupon}}" data-wpy-evt="5-12" bind:hidecoupon="_proxy" bind:usecoupon="_proxy" class="coupon"></coupon>
+		<view style="z-index:999" class="acea-row row-right " style="padding-right:40rpx; margin-top:20rpx;">
+			<!-- <button style="width:120rpx;height:60rpx;background:rgba(255,255,255,1);border-radius:7rpx; color:#000;padding:0;line-height:60rpx;margin:0;font-size:24rpx; " type="primary">切换摄像头</button> -->
+			<!-- <button  open-type="share" class="acea-row row-center-wrapper" style="margin-right: 20rpx;width:54rpx;height:54rpx;border-radius:50%; background:rgba(40,40,40,0.28);padding:0;" >
+			  <image src="../../images/btn_share_w.png"style="width:36rpx;height:36rpx;"></image>
+		</button> -->
+			<view bindtap="bindSwitchCamera" class="acea-row row-center-wrapper" style="margin-right: 20rpx;width:54rpx;height:54rpx;border-radius:50%; background:rgba(40,40,40,0.28);" d>
+				<image src="../../images/com.png" style="width:36rpx;height:36rpx;"></image>
+			</view>
+
+			<view class="acea-row row-center-wrapper" style="width:54rpx;height:54rpx;border-radius:50%; background:rgba(40,40,40,0.28);" data-wpy-evt="5-21" bind:tap="_proxy">
+				<image src="../../images/btn_top_setup_w.png" style="width:36rpx;height:36rpx;"></image>
+			</view>
+		</view>
+		<view wx:if="{{toSet}}" class="acea-row row-right">
+
+			<view class="section section_gap acea-row row-column row-middle " style="z-index:99;background: #282828;padding:40rpx;">
+				<view class="acea-row row-middle">
+					<text class="section__title" style="color:#fff">调整美颜: </text>
+					<view class="body-view" style="width:400rpx;">
+
+						<slider bindchange="sliderchange" min="1" max="9" style="transform: scale(1);" />
+
+					</view>
+					<text class="font-white">{{beautyNum}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="select-list" wx:if="{{toSleect}}">
+			<view style="height:88rpx;width:750rpx;"></view>
+			<!-- 搜索框 -->
+			<view class="index-search-box dis-flex">
+				<view class="acea-row row-center-wrapper" style="width:100rpx;height:100%;position:absolute;left:20rpx;z-index:999;top:0rpx;">
+					<image src="../../images/btn_top_back_b.png" style="margin-left:10rpx; width:28rpx; height:52rpx; " data-wpy-evt="5-20" bind:tap="_proxy"></image>
+				</view>
+				<!-- catchtap="triggerSearch" -->
+				<view class="index-search flex-box acea-row row-center-wrapper" style="height:100%">
+					<!-- <view class="index-cont-search acea-row">
+						<image src="../../images/icon_top_search.png" style="margin-left:10rpx; width:32rpx; height:32rpx; "></image>
+						<input class="weui-input" maxlength="10" bindinput="bindKeyInput" placeholder="输入搜索商品" />
+					</view> -->
+					<view style="color:#000000;">请选择商品</view>
+				</view>
+			</view>
+			<!-- 商品列表 -->
+			<scroll-view bind:scrolltolower="_proxy" data-wpy-evt="52-2" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{list.data.length > 0}}">
+				<view class="new">
+					<view class="category-list arrange">
+						<!-- bindtap="selectGood" -->
+						<view class="list b-f" hover-class="none" data-select="{{item.goods_id}}" wx:for="{{list.data}}" wx:key="list" data-wpy-evt="5-22" bind:tap="_proxy">
+							<view class="left">
+								<view class="img">
+									<image class="goodsImg" mode="scaleToFill" src="{{ item.goods_image }}"></image>
+								</view>
+							</view>
+							<view class="right">
+								<view class="cont">
+									<!-- 商品名称 -->
+									<text class="title f-29 twolist-hidden">{{item.goods_name}}</text>
+									<block wx:if="{{ showView }}">
+										<!-- 商品卖点 -->
+										<view class="selling_point onelist-hidden">
+											<text>{{ item.selling_point }}</text>
+										</view>
+
+										<!-- 商品销量 -->
+										<view class="goods_sales dis-flex">
+											<text class="onelist-hidden">已售{{ item.goods_sales }}件</text>
+										</view>
+									</block>
+									<view class="acea-row">
+										<!-- <view class="selling-full acea-row row-center-wrapper onelist-hidden">
+											满300减30
+										</view> -->
+										<block wx:for="{{item.coupon_list}}" wx:key="coupon">
+											<view class="selling-full" wx:if="{{index==1}}">{{item.name}}</view>
+										</block>
+									</view>
+									<!-- 商品价格 -->
+									<view class="acea-row row-between-wrapper">
+										<view class="detail-price onelist-hidden">
+											<text class="goods-price f-30 col-m">￥{{item.goods_sku.goods_price}}</text>
+											<text class="line-price col-9 f-24" wx:if="{{item.goods_sku.line_price>0}}">{{item.goods_sku.line_price}}</text>
+										</view>
+										<view>
+											<image src="../../images/form_checked.png" style="width:32rpx;height:32rpx;" wx:if="{{item.is_tuisong==1}}"></image>
+											<image src="../../images/form_Unchecked.png" style="width:32rpx;height:32rpx;" wx:if="{{item.is_tuisong==0}}"></image>
+										</view>
+									</view>
+
+								</view>
+							</view>
+						</view>
+					</view>
+
+
+				</view>
+				<view wx:if="{{ no_more }}" class="no-more f-30">亲, 没有更多了</view>
+			</scroll-view>
+		</view>
+		<view class="btn-area">
+			<!-- <button bindtap="bindStart" class="page-body-button" type="primary">开始播放</button>
+			<button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>-->
+			<button bind:tap="_proxy" data-wpy-evt="55-2" style="width:160rpx;height:72rpx;background:rgba(255,255,255,1);border-radius:7rpx; color:#000; line-height:72rpx;" type="primary">结束</button>
+			<!-- <button bindtap="bindResume" class="page-body-button" type="primary">恢复推流</button>  -->
+			<!--  -->
+		</view>
+
+	</view>
+	<!-- <live-player src="{{play_url}}" wx:if="{{ roomStatus!=='0' }}" mode="RTC" autoplay id="video-livePusher" beauty="9" object-fit="fillCrop" whiteness="9" data-wpy-evt="5-14" bind:statechange="_proxy" bind:error="_proxy" style="width: 100vw; height: 100vh;" class="live-player"></live-player>
+	<no-owner bind_init="_initComponent" wx:else ownerInfo="{{ ownerInfo }}"></no-owner> -->
+	<live-pusher class="live-player" id="pusher" url="{{push_url}}" mode="{{mode}}" beauty="{{beautyNum}}" whiteness="{{beautyNum}}" autopush bindstatechange="statechange" />
+
+</view>

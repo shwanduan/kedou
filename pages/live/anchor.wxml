@@ -1,0 +1,23 @@
+<!--pages/live/anchor.wxml-->
+<view class="container" wx:if="{{is_switch==1}}">
+	<!-- <view class=" acea-row row-center title">直播间名称 </view>
+	<view class=" acea-row row-center">
+		<input class="weui-input" maxlength="10" bindinput="bindKeyInput" placeholder="输入直播间名称" />
+	</view> -->
+	  <picker range='{{titleList}}'style="margin-top: 20%;padding: 40rpx;box-sizing: border-box;width: 750rpx;" value='{{index}}' bindchange='bindPickerChange' range-key="title" data-id='{{titleList[index].id}}'>
+        <view class="acea-row row-between-wrapper input-item ">
+          <view style="font-size: 36rpx;width: 203rpx;">选择类型:</view>
+          <view class='picker acea-row ' style="display:flex;flex:1;font-size:36rpx;border: 1rpx solid #000;padding-left: 5%;">{{titleList[index].title}}</view>
+        </view>
+      </picker>
+	  <picker range='{{modeList}}'style="margin-top: 10%;padding: 40rpx;box-sizing: border-box;width: 750rpx;" value='{{index2}}' bindchange='bindPickerChange2' range-key="title" data-id='{{modeList[index2].id}}'>
+        <view class="acea-row row-between-wrapper input-item ">
+          <view style="font-size: 36rpx;width: 203rpx;">选择清晰度:</view>
+          <view class='picker acea-row ' style="display:flex;flex:1;font-size:36rpx;border: 1rpx solid #000;padding-left: 5%;">{{modeList[index2].title}}</view>
+        </view>
+      </picker>
+	<button bindtap="addavchatroom" style="position:absolute;top:70%;left:75rpx; width:600rpx; color:#FFF; background: linear-gradient(315deg,rgba(255,0,67,1) 0%,rgba(255,112,50,1) 100%);" >开始直播</button>
+	<!-- <button open-type="share" style="position:absolute;top:80%;left:75rpx; width:600rpx; color:#FFF; background: linear-gradient(315deg,rgba(255,0,67,1) 0%,rgba(255,112,50,1) 100%);" >分享直播间</button> -->
+
+
+</view>

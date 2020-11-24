@@ -1,0 +1,25 @@
+/* pages/school/details/chat.wxss */
+@import "../school.wxss";
+.comment-item{
+   padding: 30rpx;
+}
+.name{
+margin-bottom: 10rpx;
+font-size:24rpx;
+color:rgba(160,160,160,1);
+line-height:24rrpx;
+}
+.content{
+font-size:28rpx;
+color:rgba(40,40,40,1);
+line-height:32rpx;
+}
+.time{
+
+font-size:24rpx;
+color:rgba(160,160,160,1);
+line-height:24px;
+}
+.weiliao-footer-img{
+margin-left: 42rpx;
+}

@@ -1,0 +1,179 @@
+<view class="container b-f" wx:if="{{ is_dealer && isData }}">
+	<view class="top-bg"></view>
+	<view style="height:88rpx;"></view>
+	<view  style="height:88rpx;width:750rpx; position:relative;" class="acea-row row-center-wrapper ">
+	<view bindtap="toback" class="acea-row row-middle" style="position:absolute;width:50rpx;height:100%; left:40rpx;">
+	<image src="../../../images/btn_top_back_w.png" style="width:22rpx; height:35rpx;"></image>
+	</view>
+		<view style="color:#FFFFFF;font-size:40rpx;font-weight:600rpx;">佣金</view>
+
+	</view>
+	<!-- 头部背景图 -->
+	<!-- <view class="dealer-bg">
+  
+      <view class="" style="height:100rpx; background:linear-gradient(180deg,#E02020 0%,#F5F5F5 100%);">
+      </view>
+  </view> -->
+
+	<!-- widget -->
+	<!-- <view class="widget-body b-f dis-flex flex-dir-column flex-y-center"> -->
+	<!-- 用户信息 -->
+	<!-- <view class="widget widget__base m-top20 b-f dis-flex flex-dir-column"> -->
+	<!-- <view class="base__user f-30"> -->
+	<!-- 用户头像 -->
+	<!-- <view class="user-avatar"> -->
+	<!-- <image src="{{ user.avatarUrl }}"></image> -->
+	<!-- </view> -->
+	<!-- <view class="user-nickName f-32">{{ user.nickName }}</view> -->
+	<!-- <view class="user-referee f-24 col-9">{{ words.index.words.referee.value }}：{{ dealer.referee ? dealer.referee.nickName : '平台' }}</view> -->
+	<!-- </view> -->
+	<!-- <view class="base__capital dis-flex flex-dir-column"> -->
+	<!-- 佣金卡片 -->
+	<!-- <view class="capital-card dis-flex">
+          <view class="card-left flex-box dis-flex flex-dir-column flex-x-around">
+            <view class="f-28 col-f">
+              <text space="ensp">{{ words.index.words.money.value }} {{ dealer.money }} 元</text>
+            </view>
+            <view class="f-28 col-f">
+              <text space="ensp">{{ words.index.words.freeze_money.value }} {{ dealer.freeze_money }} 元</text>
+            </view>
+          </view>
+          <view class="card-right flex-box dis-flex flex-x-end flex-y-center">
+            <view class="withdraw-btn f-26" catchtap="navigationToWithdraw">{{ words.index.words.withdraw.value }}</view>
+          </view>
+        </view> -->
+	<!-- 已提现金额 -->
+	<!-- <view class="capital-already clear">
+          <view class="already-left f-28 fl">{{ words.index.words.total_money.value }}</view>
+          <view class="already-right f-28 fr">{{ dealer.total_money }}元</view>
+        </view>
+      </view>
+    </view> -->
+
+	<!-- 操作列表 -->
+	<!-- <view class="widget widget__operat clear b-f">
+		<view class="operat__item">
+			<navigator hover-class="none" url="../withdraw/s/list">
+				<view class="item__icon">
+					<text class="iconfont icon-zhangben" style="color:#F9BA21;"></text>
+				</view>
+				<view class="item__text f-28">{{ words.withdraw_list.title.value }}</view>
+			</navigator>
+		</view>
+		<view class="operat__item">
+			<navigator hover-class="none" url="../order/order">
+				<view class="item__icon">
+					<text class="iconfont icon-dingdan" style="color:#FF7575;"></text>
+				</view>
+				<view class="item__text f-28">{{ words.order.title.value }}</view>
+			</navigator>
+		</view>
+		<view class="operat__item">
+			<navigator hover-class="none" url="../team/team">
+				<view class="item__icon">
+					<text class="iconfont icon-tuandui" style="color:#59C78E;"></text>
+				</view>
+				<view class="item__text f-28">{{ words.team.title.value }}</view>
+			</navigator>
+		</view>
+		<view class="operat__item">
+			<navigator hover-class="none" url="../qrcode/qrcode">
+				<view class="item__icon">
+					<text class="iconfont icon-erweima" style="color:#5fa5ff;"></text>
+				</view>
+				<view class="item__text f-28">{{ words.qrcode.title.value }}</view>
+			</navigator>
+		</view>
+	</view> -->
+	<!-- </view>
+</view> -->
+
+
+
+	<!-- 当前不是分销商 -->
+	<!-- <view class="container b-f" wx:if="{{ !is_dealer && isData }}">
+  <view class="no-dealer">
+    <view class="no-icon dis-flex flex-x-center">
+      <image src="/images/not-dealer.png"></image>
+    </view>
+    <view class="no-msg dis-flex flex-x-center f-30" style="">{{ words.index.words.not_dealer.value }}</view> -->
+	<!-- 立即申请 -->
+	<!-- <view class="no-submit form-submit dis-flex flex-x-center">
+      <form bindsubmit="triggerApply" report-submit="true">
+        <button formType="submit">{{ words.index.words.apply_now.value }}</button>
+      </form>
+    </view>
+  </view>
+</view> -->
+
+	<view class="acea-row row-center-wrapper">
+		<view style="width:710rpx;height:400rpx;background:rgba(255,255,255,1);border-radius:24rpx; border-radeio:20rpx;position:relative;margin-bottom:50rpx;padding: 60rpx;" class="f-28 acea-row row-column row-middle">
+			<view>总金额</view>
+			<view style="font-size:60rpx;margin-top:20rpx; margin-bottom:40rpx;">{{sum}}</view>
+			<view class=" f-26 acea-row row-center-wrapper" catchtap="navigationToWithdraw" style="width:300rpx;height:96rpx;background:rgba(255,239,243,1);border-radius:8rpx;font-size:36rpx;color:rgba(255,0,66,1);">提现</view>
+		</view>
+	</view>
+	<view style="width:750rpx;height:136rpx;background:rgba(255,255,255,1);" class="acea-row">
+		<view class="f-28  acea-row row-center-wrapper row-column"  bindtap="getOrderList"style="width:50%;">
+			<text>可用佣金</text>
+			<text space="ensp">{{ dealer.money }} 元</text>
+			<view class="{{type==1?'active':''}}"></view>
+		</view>
+		<view class="f-28 text-grey acea-row row-center-wrapper row-column" bindtap="getFrozenList" style="width:50%;">
+			<text>冻结佣金</text>
+			<text space="ensp"> {{ dealer.freeze_money }} 元</text>
+			<view class="{{type==2?'active':''}}"></view>
+		</view>
+	</view>
+	<view class="section acea-row">
+		<picker mode="date" value="{{date}}" start="2020-06" end="{{endDate}}" bindchange="bindDateChange" fields="month" style="width:300rpx;margin-left:40rpx;">
+			<view class="picker acea-row row-middle">
+				<text>{{date}}</text>
+				<image src="../../../images/btn_drop_down_b.png" style="width:30rpx;height:16rpx;margin:0 20rpx 0 20rpx; "></image>
+			</view>
+
+		</picker>
+		<!-- <view class="acea-row row-middle text-grey"><text>收入:</text><text style="color:#FF0042; margin-left:20rpx;">{{shouru}}</text></view>
+		<view class="acea-row row-middle text-grey" style=" margin-left:20rpx;"><text>支出:</text><text style="color:#005DFF; margin-left:20rpx;">{{zhichu}}</text></view> -->
+	</view>
+  <scroll-view scroll-y="{{ true }}" bindscrolltolower="triggerDownLoad" style="height: {{swiperHeight}}px;">
+    <view class="widget-list b-f" wx:if="{{ list.data.length }}">
+      <view class="widget__detail" wx:for="{{ list.data }}" wx:key="this">
+        <view class="detail__row dis-flex flex-x-between">
+          <view class="detail__left f-24">订单号：{{ item.order_master.order_no }}</view>
+          <view class="detail__right f-24 c-violet">
+            {{ item.order_master.state_text }}
+          </view>
+        </view>
+        <view class="detail__row m-top10 dis-flex flex-x-between">
+          <view class="detail__left dis-flex flex-y-center">
+            <view class="user-avatar">
+              <image src="{{ item.user.avatarUrl }}"></image>
+            </view>
+            <view class="user-info dis-flex flex-dir-column flex-x-center">
+              <view class="user-nickName f-28">{{ item.user.nickName }}</view>
+              <view class="user-time f-24 c-80">消费金额：￥{{ item.order_price }}</view>
+            </view>
+          </view>
+          <view class="detail__right dis-flex flex-dir-column flex-x-center flex-y-center">
+            <view class="detail__money t-r col-m">
+              <text class="f-26">+ </text>
+              <text class="f-28" wx:if="{{ item.first_user_id == user_id }}">{{ item.first_money }}</text>
+              <text class="f-28" wx:elif="{{ item.second_user_id == user_id }}">{{ item.second_money }}</text>
+              <text class="f-28" wx:elif="{{ item.third_user_id == user_id }}">{{ item.third_money }}</text>
+				  <text  class="f-28" wx:else>{{item.price}}</text>
+            </view>
+            <view class="detail__time f-22 c-80">{{ item.create_time }}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 没有更多 -->
+      <view wx:if="{{ list.data.length && !isLoading && list.no_more }}" class="no-more f-30">亲, 没有更多了</view>
+    </view>
+    <!-- 没有记录 -->
+    <view class="yoshop-notcont" wx:if="{{ !list.data.length && !isLoading }}">
+      <text class="iconfont icon-wushuju"></text>
+      <text class="cont">亲，暂无订单记录哦</text>
+    </view>
+  </scroll-view>
+</view>

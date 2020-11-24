@@ -1,0 +1,11 @@
+/* pages/live/anchor.wxss */
+.title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.weui-input{
+  width: 250rpx;
+  height: 50rpx;
+  border: 1rpx solid rgb(201, 201, 201);
+  border-radius: 10rpx;
+}

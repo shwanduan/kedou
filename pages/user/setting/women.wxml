@@ -1,0 +1,5 @@
+<!--pages/user/setting/women.wxml-->
+<!-- <text>pages/user/setting/women.wxml</text> -->
+<view>
+<image style="width:100vw;position:fixed;bottom:0;" src="http://qy.58zltc.com/img/WechatIMG1.png" mode="widthFix"></image>
+</view>

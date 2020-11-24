@@ -1,0 +1,80 @@
+<!--components/footer/footer.wxml-->
+<!-- <text>components/footer/footer.wxml</text> -->
+	<view class="cu-bar tabbar  bg-white">
+			<view wx:if="{{pageid=='1'}}" class="action text-red">
+				<view class="action-top">
+					
+				<image class="action-img" src="../../images/shouye_active.png" mode=""></image>
+				</view>
+				 首页
+			</view>
+			<navigator url="/pages/index/index"wx:else open-type="reLaunch" class="action text-gray">
+				<view class="action-top">
+					
+				<image class="action-img" src="../../images/shouye.png" mode=""></image>
+				</view>
+				 首页
+			</navigator>
+			<!-- <view wx:if="{{pageid=='2'}}" class="action text-red">
+				<view class="action-top">
+					
+				<image class="action-img" src="../../images/btn_botnav_2_activation.png" mode=""></image>
+				</view>
+				 分类
+			</view>
+			<navigator wx:else url="/pages/category/index" open-type="reLaunch"   class="action {{pageid=='2'?'text-red':'text-gray'}}">
+				<view class="action-top">
+					
+				<image class="action-img" src="{{pageid=='2'?'../../images/btn_botnav_2_activation.png':'../../images/btn_botnav_2_normal.png'}}" mode=""></image>
+				</view>
+				 分类
+			</navigator> -->
+
+
+			<!-- <block wx:if="{{is_switch==1}}">
+				<view wx:if="{{pageid=='3'}}" class="action text-red">
+				<view class="action-top">
+					
+				<image class="action-img" src="../../images/btn_botnav_3_activation.png" mode=""></image>
+				</view>
+				 直播
+			</view>
+			<navigator  wx:else  url="/pages/live/list"  open-type="reLaunch"  class="action {{pageid=='3'?'text-red':'text-gray'}}">
+				<view class="action-top">
+					
+				<image class="action-img" src="{{pageid=='3'?'../../images/btn_botnav_3_activation.png':'../../images/btn_botnav_3_normal.png'}}" mode=""></image>
+				</view>
+				直播
+			</navigator>
+			</block>  -->
+		
+		 <view wx:if="{{pageid=='4'}}" class="action text-red">
+				<view class="action-top">
+			
+				<image class="action-img" src="../../images/gouwuche_active.png" mode=""></image>
+				</view>
+				 购物车
+			</view>
+			<navigator  wx:else url="/pages/flow/index"  open-type="reLaunch"  class="action {{pageid=='4'?'text-red':'text-gray'}}">
+				<view class="action-top">
+					
+				<image class="action-img" src="{{pageid=='4'?'../../images/gouwuche_active.png':'../../images/gouwuche.png'}}" mode=""></image>
+				</view>
+				购物车
+			</navigator>
+			<view wx:if="{{pageid=='5'}}" class="action text-red">
+				<view class="action-top">
+					
+				<image class="action-img" src="../../images/wode_active.png" mode=""></image>
+				</view>
+				 我的
+			</view>
+			<navigator wx:else url="/pages/user/index"  open-type="reLaunch"  class="action {{pageid=='5'?'text-red':'text-gray'}}">
+				<view class="action-top">
+					
+					<image class="action-img" src="{{pageid=='5'?'../../images/wode_active.png':'../../images/wode.png'}}" mode=""></image>
+				</view>
+				我的
+			</navigator>
+		
+		</view>

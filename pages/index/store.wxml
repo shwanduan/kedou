@@ -1,0 +1,60 @@
+<view class="container b-f">
+	<view class="top-bg"></view>
+<view style="height:88rpx;"></view>
+<!-- <view style="height:88rpx;width:750rpx; position:relative;" class="acea-row row-middle">
+<image src="./../../images/icon_top_w_address.png"style="height:36rpx;width:30rpx;margin-left:30rpx;margin-right:30rpx;" ></image>
+<text style="font-size:30rpx;color:#FFF;">{{district}}</text>
+</view> -->
+<view style="height:88rpx;width:750rpx; position:relative;" class="acea-row row-middle">
+<image bindtap="toBack" src="./../../images/btn_top_back_w.png"style="height:36rpx;width:24rpx;margin-left:30rpx;margin-right:30rpx;" ></image>
+ <view style="width:580rpx;height:64rpx;background:rgba(245,245,245,1);border-radius:36rpx;opacity:0.29; padding-left:30rpx;" class="acea-row row-middle">
+ <image src="./../../images/btn_top_search_w.png" style="width:32rpx;height:32rpx;"></image>
+
+ </view>
+</view>
+<view class="store-title acea-row row-between-wrapper">
+		<view class="acea-row row-middle">
+			<image src="{{storeInfo.imger}}" style="width:72rpx;height:72rpx;border-radius:8px; margin-right:10rpx;"></image>
+			<view class="acea-row row-column row-between" style="height:72rpx;">
+				<view class="name">{{storeInfo.user_name}}</view>
+				<view class=" acea-row row-middle">
+
+					<!-- <image src="../../images/label_kdzy.png" style=" width:94rpx;height:28rpx;" mode=""></image> -->
+					<view class="font-white">{{storeInfo.like}}人关注</view>
+					<view class="com_xing">
+						<text class="iconfont icon-shoucang active"></text>
+						<text class="iconfont icon-shoucang active"></text>
+						<text class="iconfont icon-shoucang active"></text>
+						<text class="iconfont icon-shoucang active"></text>
+						<text class="iconfont icon-shoucang active"></text>
+					</view>
+				</view>
+
+			</view>
+		</view>
+    <view wx:if="{{status==0}}" bindtap="addStore">
+		<image  src="../../images/btn_follow.png" style=" width:120rpx;height:42rpx;" mode="" ></image>
+    </view>
+    <view  wx:else bindtap="deleteStoreUser">
+		<image  src="../../images/button_add_gz_w.png" style=" width:120rpx;height:42rpx;" mode="" ></image>
+    </view>
+		<!-- <view style="border-radio:40prx;border:1rpx solid #FFF; width:120rpx;height:42rpx;">已关注</view> -->
+
+	</view>
+<!-- <navigator url="../goods/index?goods_id=10016&referee_id=10016"style="height:88rpx; position:relative;">购买</navigator> -->
+<!-- <navigator url="../dealer/apply/apply?type=3 "style="height:88rpx; position:relative;">申请</navigator> -->
+<!-- <navigator url="../room/anchor?room_status=1&im_id=666666"style="height:88rpx;">主播直播间</navigator>
+<navigator url="../room/index?room_status=1&im_id=666666"style="height:88rpx;">普通直播间</navigator> -->
+
+  <!-- DIY组件 -->
+  <view style="padding: 0 30rpx ; box-sizing: border-box;width:750rpx;">
+  <diy-component diyItems="{{ items }}"></diy-component>
+  </view>
+
+  <!-- 底线 -->
+  <!-- <view class="title-footer p-r">
+    <text class="f-24 col-9 cont">我是有底线的</text>
+    <view class="hr"></view>
+  </view> -->
+
+</view>

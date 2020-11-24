@@ -1,0 +1,33 @@
+/* pages/order/result.wxss */
+
+@import "/pages/search/result.wxss";
+.result-top{
+  width:750rpx;height:556rpx;background:rgba(255,255,255,1);box-shadow:0px -1px 0px 0px rgba(238,238,238,1);
+  padding: 40rpx 24rpx 60rpx 24rpx;
+}
+
+.image-box image{
+  width:88rpx;height:88rpx;
+
+}
+.text-result{
+  height:48rpx;font-size:34rpx;font-weight:500;color:rgba(0,181,136,1);line-height:48rpx;
+  margin-top: 10rpx;
+
+}
+.money{
+  font-weight:500;color:rgba(51,51,51,1);
+  margin-top: 40rpx;
+  height: 84rpx;
+  margin-bottom: 60rpx;
+}
+.title-item{
+  height: 66rpx;
+  font-size: 30rpx;
+}
+.title-item .title{
+  color: #AAAAAA;
+}
+.name{
+  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+}

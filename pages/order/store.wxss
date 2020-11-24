@@ -1,0 +1,5 @@
+/* pages/order/store.wxss */
+@import "./index.wxss";
+.header view {
+  padding: 0;
+}

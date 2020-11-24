@@ -1,0 +1,94 @@
+<!--pages/share/apply.wxml-->
+
+<view class="container" wx:if="{{is_switch==1}}">
+	<view class="con-bg"></view>
+	<view style="position:relative;z-index:9;">
+		<view class="" style="height:88rpx;"></view>
+		<view class="friend">
+			<text style="">你的好友  {{shareName}}  邀请您</text>
+		</view>
+		<view class="join-title">
+			<text style="">加入蝌蚪直播</text>
+		</view>
+		<view class="form-box">
+			<form bindsubmit="zhiBoToApply" report-submit="true">
+				<view class="input-list mar-20">
+					<view class="acea-row input-item row-middle">
+						<view class="title">入驻类型</view>
+						<view class="type-list acea-row ">
+							<view bindtap="selectType" data-type="1" class="type-item {{type==1?'active':''}} acea-row row-center-wrapper"> 平台主播</view>
+							<view bindtap="selectType" data-type="2" class="type-item {{type==2?'active':''}} acea-row row-center-wrapper"> 商户主播</view>
+
+						</view>
+					</view>
+					<view class="acea-row row-between-wrapper input-item">
+						<view class="title">
+							直播昵称
+						</view>
+						<input class="acea-row" type="text" name="name" value="{{name}}" placeholder="请输入直播昵称" />
+					</view>
+					<view class="acea-row row-between-wrapper input-item">
+						<view class="title">
+							姓名
+						</view>
+						<input class="acea-row" type="text" name="nick_name" value="{{nickName}}" placeholder="请输入姓名" />
+					</view>
+					<view class="acea-row row-between-wrapper input-item">
+						<view class="title">
+							手机号码
+						</view>
+						<input class="acea-row" type="text" name="phone" value="{{phone}}" placeholder="请输入手机号码" />
+					</view>
+					<view class="acea-row row-between-wrapper input-item">
+						<view class="title">
+							证件类型
+						</view>
+						<input class="acea-row" type="text" value="身份证" disabled="true" placeholder="请输入证件类型" />
+					</view>
+					<view class="acea-row row-between-wrapper input-item">
+						<view class="title">
+							证件号码
+						</view>
+						<input class="acea-row" type="text" name="card" value="{{card}}" placeholder="请输入证件号码" />
+					</view>
+					<!-- <view class="acea-row row-between-wrapper input-item " style="height: 160rpx; line-height: 96rpx;">
+				<view class="title">
+					关联店铺
+				</view>
+				<textarea class="acea-row" style="width: 556rpx; height:160rpx;background:rgba(255,255,255,1);" value=""
+				 placeholder="" /> 
+
+				</view> -->
+					<picker range='{{storeUser}}' value='{{index}}' bindchange='bindPickerChange' range-key="user_name" data-id='{{storeUser[index].store_user_id}}' wx:if="{{type==2}}">
+						<view class="acea-row row-between-wrapper input-item ">
+							<view>关联店铺</view>
+							<view class='picker acea-row row-right' style="display:flex;flex:1;">{{storeUser[index].user_name}}</view>
+						</view>
+					</picker>
+					<view class="acea-row row-between-wrapper mar-20 bg-white input-item">
+						<view class="title">
+							手持证件
+						</view>
+						<view class="acea-row row-middle" bindtap="uploadImage" data-type="1">
+							<image class="shangchuan" src="./../../images/btn_upload_sfz1.png" mode=""></image>
+							<text>人像面上传</text>
+						</view>
+						<view class=" acea-row row-middle" bindtap="uploadImage" data-type="2">
+							<image class="shangchuan" src="./../../images/btn_upload_sfz1.png" mode=""></image>
+							<text>国徽面上传</text>
+						</view>
+					</view>
+				</view>
+				<view>
+					<view class="acea-row row-center-wrapper">
+          <checkbox  bindtap="checkboxChange" checked="{{checked}}"></checkbox>
+						<view style="width:525rpx;height:71rpx;font-size:22rpx;line-height:30rpx;">
+							<text style="color:#999999;">已阅读并同意</text><text style="color:#FF0042;">《用户注册及隐私协议》《蝌蚪商城直播服务协议》《蝌蚪商城直播内容创作者管理规范》</text>
+						</view>
+					</view>
+				</view>
+				<button class="sub-btn" formType="submit" disabled="{{disabled}}">提交申请</button>
+			</form>
+		</view>
+	</view>
+</view>

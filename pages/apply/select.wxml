@@ -1,0 +1,61 @@
+<!--pages/apply/select.wxml-->
+
+<view class="container">
+		<view class="select">
+			<view class="title">
+
+				选择入驻类型
+      
+			</view>
+			<view class="acea-row row-between-wrapper select-list" wx:if="{{type == 1}}">
+				<view class="select-item acea-row row-column row-center-wrapper" bindtap="navToApply"data-type="1">
+					<image class="select-icon" src="../../images/icon_zbsq_zb.png" mode=""></image>
+					<view class="">
+						<text>平台主播</text><image class="btn-next" src="../../images/btn_next_b1.png" mode=""></image>
+					</view>
+				
+				</view>
+				<view class="select-item acea-row row-column row-center-wrapper" bindtap="navToApply"data-type="2">
+					<image class="select-icon" src="../../images/icon_zbsq_zb.png" mode=""></image>
+					<view class="">
+						<text>商户主播</text>
+						<image class="btn-next" src="../../images/btn_next_b1.png" mode=""></image>
+					</view>
+				</view>
+			</view>
+      <!-- 商户 -->
+      <view class="acea-row row-between-wrapper select-list"  wx:else>
+				<view class="select-item acea-row row-column row-center-wrapper"bindtap="navToApply"data-type="3">
+					<image class="select-icon" src="../../images/icon_store_sq.png" mode=""></image>
+					<view class="">
+						<text>个人</text><image class="btn-next" src="../../images/btn_next_b1.png" mode=""></image>
+					</view>
+				
+				</view>
+				<view class="select-item acea-row row-column row-center-wrapper"bindtap="navToApply"data-type="4">
+					<image class="select-icon" src="../../images/icon_store_sq.png" mode=""></image>
+					<view class="">
+						<text>企业</text>
+						<image class="btn-next" src="../../images/btn_next_b1.png" mode=""></image>
+					</view>
+				</view>
+			</view>
+		</view>
+    
+
+		<view class="">
+			<view class="title">
+				申请须知
+			</view>
+      <block wx:for="{{liveMessage}}" wx:key="this">
+      <view class="nav-item acea-row row-between-wrapper">
+				<text class="">{{item.title}}</text>
+				<image class="btn-next" src="../../images/btn_next_b1.png" mode=""></image>
+			</view>
+      <view class="tip-content" >
+				<text>{{item.content}}</text>
+				
+			</view>
+      </block>
+		</view>
+	</view>

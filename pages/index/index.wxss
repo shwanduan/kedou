@@ -1,0 +1,14 @@
+/* diy组件 */
+@import "../../components/diy/index.wxss";
+
+page {
+  background: #f8f8f8 !important;
+}
+.top-bg {
+  width: 750rpx;
+  height: 238rpx;
+  position: absolute;
+  top: 0rpx;
+  background-color: #ff6c20;
+  /* background: linear-gradient(322deg, rgba(255, 76, 0, 1) 0%, rgba(255, 0, 67, 1) 100%); */
+}

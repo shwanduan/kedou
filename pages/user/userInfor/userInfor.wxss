@@ -1,0 +1,86 @@
+/* pages/user/userInfo/userInfor.wxss */
+.container {
+	background-color: #F5F5F5;
+}
+
+.container .img-select {
+	width: 750rpx;
+	height: 160rpx;
+	background: rgba(255, 255, 255, 1);
+	padding: 0 30rpx;
+	margin: 20rpx 0;
+	font-size: 28rpx;
+}
+
+.container .img-select .head-img {
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50rpx;
+}
+
+.container .img-select .btn-next {
+	margin-left: 30rpx;
+}
+
+.setting-item {
+	width: 750rpx;
+	height: 120rpx;
+	background: rgba(255, 255, 255, 1);
+	padding: 0 30rpx;
+	margin-top: 2rpx;
+	font-weight: 400;
+	color: #AAAAAA;
+  box-sizing: border-box;
+}
+
+.setting-item .title {
+	color: #000000;
+}
+
+.setting-item .smrz-img {
+	width: 44rpx;
+	height: 32rpx;
+}
+
+.setting-item .font-red {
+	margin: auto 36rpx auto 13rpx;
+}
+
+.setting-item .btn-next {
+	margin-left: 20rpx;
+}
+
+.loginout-btn {
+	margin-top: 160rpx;
+	width: 750rpx;
+	height: 121rpx;
+	background: rgba(255, 255, 255, 1);
+	line-height: 120rpx;
+}
+
+
+
+
+.set-input {
+	width: 750rpx;
+	height: 98rpx;
+	background: rgba(255, 255, 255, 1);
+	padding: 30rpx;
+
+}
+
+.set-input .title {
+	width: 196rpx;
+}
+
+.set-input input {
+	display: flex;
+	flex: 1;
+}
+.msg{
+	font-size:28rpx;
+	color:rgba(170,170,170,1);
+	margin-top: 16rpx;
+	padding-left: 30rpx;
+}
+

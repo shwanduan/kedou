@@ -1,0 +1,193 @@
+/* pages/school/school.wxss */
+.top-bg {
+  width: 750rpx;
+  height: 270rpx;
+  position: absolute;
+  top: 0rpx;
+  background: linear-gradient(322deg, rgba(255, 76, 0, 1) 0%, rgba(255, 0, 67, 1) 100%);
+}
+
+.title-item {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 1);
+  /* line-height:28px; */
+}
+
+.title-item .title-item-text {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.title-item.active {
+  /* width:128rpx;
+   height:32rpx; */
+  font-size: 32rpx;
+  font-weight: 600;
+  /* line-height:32rpx; */
+}
+
+.select-title {
+  position: relative;
+}
+
+.title-item-bottom {
+  width: 100%;
+  height: 16rpx;
+  margin-top: 18rpx;
+}
+
+.dangqian {
+  width: 60rpx;
+  height: 15rpx;
+}
+
+.lump-list-box {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+  position: relative;
+  padding: 40rpx 30rpx;
+}
+
+.lump-item {
+  width: 218rpx;
+  height: 68rpx;
+  background: rgba(40, 40, 40, 0.84);
+  border-radius: 8px;
+  color: #FFF;
+  text-align: center;
+  line-height: 68rpx;
+  margin-top: 20rpx;
+}
+
+.lump-item-hover {
+  width: 214rpx;
+  height: 64rpx;
+  margin-left: 2rpx;
+  margin-top: 22rpx;
+  box-shadow: -2rpx 0rpx 20rpx 2rpx rgba(40, 40, 40, 0.84);
+}
+
+.lump-item:not(:nth-child(3n)) {
+  margin-right: 18rpx;
+}
+
+.lump-item-hover:not(:nth-child(3n)) {
+  margin-right: 20rpx;
+ 
+}
+
+.news-list {
+  position: relative;
+  padding: 0 20rpx;
+  background: rgba(255, 255, 255, 1);
+}
+.news-item{
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.news-item .news-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: rgba(40, 40, 40, 1);
+}
+
+.follow image {
+  width: 136rpx;
+  height: 48rpx;
+}
+
+.weiliao {
+  position: relative;
+  background-color: #FFF;
+}
+
+.weiliao-item {
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.weiliao-head {
+  margin-bottom: 30rpx;
+}
+
+.weiliao-title {
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.weiliao-img {
+  width: 222rpx;
+  height: 222rpx;
+}
+
+.weiliao-head-img {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 16rpx;
+}
+
+.weiliao-img:not(:nth-child(3n)) {
+  margin-right: 12rpx;
+}
+
+.weiliao-footer {
+  margin-top: 40rpx;
+  font-size: 24rpx;
+}
+
+.weiliao-footer-img {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+}
+
+.sign-list {
+  position: relative;
+  background-color: #FFF;
+}
+
+.sign-item {
+  padding: 30rpx;
+}
+
+.sign-item-image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.sign-item-title {
+  width: 512rpx;
+  height: 32rpx;
+  font-size: 30rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  margin-bottom: 10rpx;
+}
+
+.sign-item-content {
+  width: 521rpx;
+  height: 25rpx;
+  font-size: 20rpx;
+  color: rgba(160, 160, 160, 1);
+  line-height: 20rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  margin-bottom: 10rpx;
+}
+
+.sign-item-name {
+  border: 1rpx solid rgba(255, 0, 66, 1);
+  font-size: 20rpx;
+  color: rgba(255, 0, 66, 1);
+  line-height: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,15 @@
+.nav-list{
+  margin-top: 40rpx;
+}
+.nav-item{
+
+  /* width:750rpx; */
+    padding:0 40rpx ;
+height:120rpx;
+background:rgba(255,255,255,1);
+margin-bottom:2rpx;
+}
+.nav-item image{
+width:18rpx;
+height:32rpx;
+}

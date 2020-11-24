@@ -1,0 +1,28 @@
+<view>
+	<view data-wpy-evt="17-0" catch:tap="_proxy" class="close"></view>
+	<view class="goods-inner" style="position :absolute; bottom:0rpx; left:0rpx">
+
+		<view class="goods-title">全部商品 <text>{{goods.length}}</text> </view>
+		<scroll-view scroll-y="true" style="width:690rpx; height:800rpx;">
+			<view class="goods-box">
+				<view wx:for="{{ goods }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.gid }}" data-wpy-evt="17-1" bind:tap="_proxy" data-wpytap-a="{{ item }}" class="goods-item acea-row ">
+					<image src="{{item.goods_image}}" class="goods-img"></image>
+					<view class="goods-info  acea-row row-column" style="flex:1;">
+						<view class="name">{{item.goods_name}}</view>
+						<view class="price">￥ <text style="font-weight:600;">{{item.goods_max_price}}</text></view>
+						<view class="acea-row row-between" style="flex:1;">
+							<view class=" acea-row row-column ">
+							<block  wx:for="{{item.coupon_list}}" wx:key="coupon">
+								<view class="selling-full" wx:if="{{index==1}}">{{item.name}}</view>
+							</block>
+								<view class="sales">月销：{{item.goods_sales}}</view>
+							</view>
+							<view data-wpy-evt="17-1" catch:tap="_proxy" data-wpytap-a="{{ item }}" class="cart acea-row row-center-wrapper">马上抢</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	
+</view>

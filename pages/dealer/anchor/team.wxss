@@ -1,0 +1,2 @@
+/* pages/dealer/anchor/team.wxss */
+@import"../team/team.wxss"

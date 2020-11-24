@@ -1,0 +1,104 @@
+<view class="container">
+  <view class="img-select acea-row row-between-wrapper" bindtap="selectHead">
+    <view class="">
+      <image class="head-img" src="{{userInfo.avatarUrl}}" mode=""></image>
+    </view>
+    <view class=" acea-row row-middle">
+      <text>修改头像</text>
+      <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+    </view>
+  </view>
+  <view class="setting-list">
+    <view class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        会员ID
+      </view>
+      <view class="">
+        <text>{{userInfo.user_id}}</text>
+      </view>
+    </view>
+     <view class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        会员邀请码
+      </view>
+      <view class="">
+        <text>{{userInfo.RegisterCode}}</text>
+      </view>
+    </view>
+    <navigator url="./change-name" class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        我的昵称
+      </view>
+      <view class="acea-row row-middle">
+        <text>{{userInfo.nickName}}</text>
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+
+    </navigator>
+    <navigator url="" class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        手机号码
+      </view>
+
+      <view class="acea-row row-middle">
+        <text>{{userInfo.mobile}}</text>
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+    </navigator>
+    <navigator url="./shiming" class="setting-item acea-row row-between-wrapper" wx:if="{{userInfo.is_card==0}}">
+      <view class="title">
+        实名认证
+      </view>
+      <view class="acea-row row-middle">
+        <image class="smrz-img" src="../../../images/icon_smrz_y.png" mode=""></image>
+        <text class="font-red">未认证</text>
+        <!-- <text>15525247</text> -->
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+    </navigator>
+      <view  class="setting-item acea-row row-between-wrapper" wx:else>
+      <view class="title">
+        实名认证
+      </view>
+      <view class="acea-row row-middle">
+        <image class="smrz-img" src="../../../images/icon_smrz_y.png" mode=""></image>
+        <text class="font-red">已认证</text>
+        <!-- <text>15525247</text> -->
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+    </view>
+  </view>
+  <view class="setting-list" style="margin-top: 90rpx;">
+    <!-- <navigator url="./change-password" class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        登录密码
+      </view>
+      <view class="acea-row row-middle">
+        <text>更改</text>
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+    </navigator> -->
+    <!-- <navigator class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        交易密码
+      </view>
+      <view class="acea-row row-middle">
+        <text>更改</text>
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+
+    </navigator> -->
+  <navigator url="./../../address/index" class="setting-item acea-row row-between-wrapper">
+      <view class="title">
+        地址管理
+      </view>
+      <view class="acea-row row-middle">
+        <!-- <text>更改</text> -->
+        <image class="btn-next" src="../../../images/btn_next_xi_gray1.png" mode=""></image>
+      </view>
+
+    </navigator>
+  </view>
+
+  <!-- <button class="loginout-btn" type="">退出登录</button> -->
+</view>

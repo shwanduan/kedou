@@ -1,0 +1,34 @@
+<view class="coupon ">
+	<view data-wpy-evt="15-1" bind:tap="_proxy" class="close"></view>
+	<view class="coupon-img-box" wx:if="{{received}}">
+		<image src="/images/bg_hongbao_dakai.png" class="coupon-img"></image>
+		<view class="info color-red">
+			<!-- <view>
+				<image src="/images/btn_fb.png" style="width:100rpx;height:100rpx;"></image>
+			</view> -->
+			<block wx:if="{{receivedMoney>0}}">
+				<view class="title">你手速真快啊</view>
+				<view class="desc">抢到{{receivedMoney}}元</view>
+			</block>
+			<block wx:else>
+				<view class="title">你手速太慢了啊</view>
+				<view class="desc">未抢到,再接再厉</view>
+			</block>
+		</view>
+	</view>
+	<view class="coupon-img-box" wx:else>
+		<image src="/images/bg_hongbaoda.png" class="coupon-img"></image>
+		<view class="info">
+			<!-- <view>
+				<image src="/images/btn_fb.png" style="width:100rpx;height:100rpx;"></image>
+			</view> -->
+			<view class="title">{{ownerInfo.nick}}</view>
+			<button data-wpy-evt="15-0" bind:tap="_proxy" class="btn" disabled="{{time!=='抢'}}">
+				<!-- <text>抢</text>  -->
+				<text>{{time}}</text>
+			</button>
+			<view class="desc">送你一个红包</view>
+		</view>
+	</view>
+	<!-- <image src="/images/failure.png" ></image> -->
+</view>

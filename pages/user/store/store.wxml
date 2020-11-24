@@ -1,0 +1,210 @@
+<view class="container">
+	<!-- 用户信息 -->
+	<view class="user">
+
+		<view class="user-header">
+			<!-- 已登录 -->
+
+			<view class="user-header-cont acea-row row-between-wrapper">
+				<view class="acea-row user-top row-between-wrapper">
+					<view class="acea-row">
+						<view class="user-header-avatar" bindtap="toUserInfor">
+							<!-- 微信头像 -->
+							<!-- <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data> -->
+							<image src="{{userInfo.avatarUrl}}"></image>
+						</view>
+
+						<view class="user-header-right acea-row row-between row-column">
+							<!-- 微信昵称 -->
+
+							<!-- <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data> -->
+							<view class="user-header-cont-name">{{userInfo.nickName}}</view>
+							<view class="acea-row">
+								<view>邀请码:{{userInfo.RegisterCode}} </view>
+								<!-- <view class="label" style=" background-image: url('../../images/label_bg_grade_level_1.png'); "></view> -->
+
+								<!-- <view class="label" style=" background-image: url('../../images/label_business.png'); "></view> -->
+							</view>
+						</view>
+					</view>
+					<view class="user-top-right">
+						<image src="../../../../images/btn_top_setup_w.png" style="margin-right:30rpx;"></image>
+						<image src="../../../../images/icon_top_w_info.png"></image>
+
+					</view>
+
+
+					<!-- 会员等级 -->
+					<!-- <view wx:if="{{ userInfo.grade_id > 0 }}" class="user-header-grade dis-flex flex-y-center">
+            <view class="user-grade_icon">
+              <image src="/images/grade_icon.png"></image>
+            </view>
+            <view class="user-grade_name">
+              <text>{{ userInfo.grade.name }}</text>
+            </view>
+          </view> -->
+				</view>
+			</view>
+
+
+			<view class="acea-row row-between-wrapper record">
+				<view class=" acea-row row-column row-middle">
+					<view class="num">{{order_total_price.tday}}</view>
+					<view>今日销售额</view>
+				</view>
+				<view class=" acea-row row-column row-middle">
+					<view class="num">{{order_total_price.tafter}}</view>
+					<view>今日售后</view>
+				</view>
+				<view class=" acea-row row-column row-middle">
+					<view class="num">{{order_total_price.mday}}</view>
+					<view>本月销售额</view>
+				</view>
+				<view url="./coupon/coupon" class=" acea-row row-column row-middle">
+					<view class="num">{{order_total_price.mafter}}</view>
+					<view>本月售后</view>
+				</view>
+			</view>
+		</view>
+		<!-- 占位 -->
+		<view class="user-bg" style="width:750rpx;height:468rpx"></view>
+
+	</view>
+	<!-- 订单导航栏 -->
+	<view class="order-navbar reltive">
+		<!-- <form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+        <button formType="submit" class="btn-normal">
+          <view class="order-navbar-header dis-flex">
+            <text class="f-30">我的订单</text>
+            <view class="dis-flex flex-y-center">
+              <text class="f-24 col-6">全部订单</text>
+              <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+            </view>
+          </view>
+        </button>
+      </form> -->
+		<view class="order-navbar-footer dis-flex m-top10">
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-middle row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-form"></text> -->
+						<image class="order-img" src="../../../images/btn_line_order_1.png" style="width:48rpx;height:45rpx;"></image>
+						<text class="order-navbar__name">全部订单</text>
+						<text class="order-badge" >{{orderCount2.all||0}}</text>
+					</button>
+				</form>
+			</view>
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="pay" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-middle row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-daifukuan"></text> -->
+						<image class="order-img" src="../../../images/btn_line_order_2.png" style="width:58rpx;height:44rpx;"></image>
+						<text class="order-navbar__name">待付款</text>
+						<text class="order-badge" >{{orderCount2.pay||0}}</text>
+					</button>
+				</form>
+			</view>
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="delivery" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-middle row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-daishouhuo"></text> -->
+						<image class="order-img" src="../../../images/btn_line_order_3.png" style="width:54rpx;height:54rpx;"></image>
+						<text class="order-navbar__name">待发货</text>
+						<text class="order-badge" >{{orderCount2.delivery||0}}</text>
+					</button>
+				</form>
+			</view>
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="complete" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-middle row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-daishouhuo"></text> -->
+						<image class="order-img" src="../../../images/btn_line_evaluate_1.png" style="width:54rpx;height:50rpx;"></image>
+						<text class="order-navbar__name">待评价</text>
+						<text class="order-badge" >{{orderCount2.complete||0}}</text>
+					</button>
+				</form>
+			</view>
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="cancel" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-middle row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-shouhou"></text> -->
+						<image class="order-img" src="../../../images/btn_line_after_sales.png" style="width:48rpx;height:54rpx;"></image>
+						<text class="order-navbar__name">退款/售后</text>
+						<text class="order-badge">{{orderCount2.cancel||0}}</text>
+					</button>
+				</form>
+			</view>
+		</view>
+	</view>
+
+	<view class="commodity-list ">
+		<view class="commodity-title acea-row row-between-wrapper">
+			<view class="title-item {{status==10?'active':''}}" bindtap="selectType" data-status="10">出售中</view>
+			<view class="title-item {{status==-1?'active':''}}" bindtap="selectType" data-status="-1">仓库</view>
+			<view class="title-item {{status==40?'active':''}}" bindtap="selectType" data-status="40">售完</view>
+			<view class="title-item {{status==20?'active':''}}" bindtap="selectType" data-status="20">已下架</view>
+		</view>
+		<view class="category-list arrange " style="padding:0;">
+			<view class="acea-row" wx:for="{{list}}" wx:key="list">
+
+				<view class="check-img-box acea-row row-center-wrapper" bindtap="selectItem" data-id="{{item.goods_id}}" data-index="{{index}}" data-check="{{item.check}}" style="width:80rpx;">
+					<image class="check-img" wx:if="{{item.check==false}}" src="../../../images/form_Unchecked.png"></image>
+					<image class="check-img" wx:else src="../../../images/form_checked.png"></image>
+				</view>
+				<navigator class="list b-f" style="width:670rpx;" hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+
+					<view class="left">
+						<view class="img">
+							<image class="goodsImg" mode="scaleToFill" src="{{ item.goods_image }}"></image>
+						</view>
+					</view>
+					<view class="right">
+						<view class="cont">
+							<!-- 商品名称 -->
+							<text class="title f-29 twolist-hidden">{{item.goods_name}}</text>
+							<block wx:if="{{ showView }}">
+								<!-- 商品卖点 -->
+								<view class="selling_point onelist-hidden">
+									<text>{{ item.selling_point }}</text>
+								</view>
+
+								<!-- 商品销量 -->
+								<view class="goods_sales dis-flex">
+									<text class="onelist-hidden">已售{{ item.goods_sales }}件</text>
+								</view>
+							</block>
+							<!-- <view class="acea-row">
+									<view class="selling-full acea-row row-center-wrapper onelist-hidden">
+										满300减30
+									</view>
+								</view> -->
+							<!-- 商品价格 -->
+							<view class="detail-price onelist-hidden">
+								<text class="goods-price f-30 col-m">￥{{item.goods_sku.goods_price}}</text>
+								<text class="line-price col-9 f-24" wx:if="{{item.goods_sku.line_price>0}}">{{item.goods_sku.line_price}}</text>
+							</view>
+							<view>
+								<text style="color：##A0A0A0">月销：{{item.goods_sales}}库存：{{item.stock_num}}</text>
+							</view>
+						</view>
+					</view>
+				</navigator>
+
+			</view>
+
+			<view wx:if="{{list.length==0}}" style="width:100%;height:500rpx; font-size:32rpx" class="acea-row row-center-wrapper">
+				暂无商品
+			</view>
+			<view class="acea-row row-around row-middle" style="height:66rpx;position: fixed;width: 750rpx;bottom: 30rpx;">
+				<view bindtap="CheckAllItem">
+					<image class="check-img" wx:if="{{checkAll==false}}" src="../../../images/form_Unchecked.png"></image>
+					<image class="check-img" wx:else src="../../../images/form_checked.png"></image>
+					全选
+				</view>
+				<view bindtap="storeState" data-state="10">上架</view>
+				<view bindtap="storeState" data-state="20">下架</view>
+				<view bindtap="storeDelt">删除</view>
+			</view>
+		</view>
+	</view>
+</view>

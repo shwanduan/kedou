@@ -1,0 +1,143 @@
+                   
+.avtar {
+    width: 72rpx;
+    height: 72rpx;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 36rpx;
+    overflow: hidden;
+}
+.info {
+    display: inline-block;
+    color: #000;
+    vertical-align: middle;
+    padding-left: 10rpx;
+    max-width: 140rpx;
+}
+.attention {
+    width: 100rpx;
+    height: 60rpx;
+    background: #FFFFFF;
+    border-radius: 30rpx;
+    border-radius: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #FF5353;
+    letter-spacing: 0;
+    text-align: center;
+    display: inline-block;
+    padding: 0;
+    line-height: 60rpx;
+    vertical-align: middle;
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+}
+.an-infos {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 40rpx;
+    width: 322rpx;
+    height: 80rpx;
+    padding: 4rpx;
+    position: absolute;
+    top: 84rpx;
+    left: 84rpx;
+}
+.an-name {
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+.an-fans {
+    font-family: PingFangSC-Regular;
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 10px;
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+.info-wrap {
+    padding: 92rpx 22rpx 0rpx 22rpx;
+    position: relative;
+}
+.room-id-info {
+    width: 300rpx;
+    height: 40rpx;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 40rpx;
+    border-radius: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 24rpx;
+    padding: 8rpx;
+    margin-top: 10rpx;
+}
+.online {
+    width: 157rpx;
+    height: 43rpx;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 40rpx;
+    border-radius: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 43rpx;
+    position: absolute;
+    right: 24rpx;
+    top: 190rpx;
+}
+.coupon{
+    /* background-image: linear-gradient(180deg, #FF9C9C 8%, #F37474 100%); */
+    border-radius: 4rpx;
+    height: 109rpx;
+    width: 83rpx;
+    position: absolute;
+    left: 150rpx;
+    top: 270rpx;
+    z-index: 1000;
+}
+.red-pack{
+    /* background-image: linear-gradient(180deg, #FF9C9C 8%, #F37474 100%); */
+    border-radius: 4rpx;
+    height: 88rpx;
+    width: 64rpx;
+    position: absolute;
+    left: 50rpx;
+    top: 270rpx;
+    z-index: 1000;
+}
+.back{
+    width: 60rpx;
+    height: 50rpx;
+}
+.red-num{
+    text-align: center;border-radius: 50%;
+    font-size:16rpx;color:rgba(255,5,93,1);line-height:24rpx;width:24rpx;height:24rpx;background:linear-gradient(316deg,rgba(255,205,0,1) 0%,rgba(255,246,220,1) 100%);position: absolute;right: -10rpx;top: -10rpx;
+}
+.time{
+    width:64rpx;
+    height:20rpx;
+    font-size:20rpx;
+
+    color:rgba(255,255,255,1);
+    line-height:20rpx; 
+    position: absolute;
+    text-align: center;
+    left: 0rpx;
+    top: 40rpx;
+}

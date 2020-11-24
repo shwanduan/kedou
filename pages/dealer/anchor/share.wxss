@@ -1,0 +1,9 @@
+/* pages/dealer/anchor/share.wxss */
+image{
+   height: 666rpx;
+   margin-top: 20%;
+}
+.container{
+   height: 100vh;
+   background: linear-gradient(315deg, rgba(255, 0, 67, 1) 0%, rgba(255, 112, 50, 1) 100%);
+}

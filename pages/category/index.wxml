@@ -1,0 +1,143 @@
+<view class="container">
+	<!-- 搜索框 -->
+	<view class="index-search-box">
+		<navigator class="index-search" hover-class="none" openType="navigate" url="../search/index">
+			<view class="index-cont-search t-c">
+				<icon class="text-center" color="{{searchColor}}" size="{{searchSize}}" type="search"></icon>
+				<text>{{searchName}}</text>
+			</view>
+		</navigator>
+	</view>
+
+	<!-- 分类样式：一级分类(大图) 10 -->
+	<view class="cate-content" wx:if="{{ templet.category_style == 10 && list.length > 0 }}">
+		<view class="cate-wrapper cate_style__10">
+			<scroll-view scroll-y="true" style="height: {{scrollHeight - 10}}px; ">
+				<view class="cate-item" wx:for="{{list}}" wx:key="this">
+					<navigator hover-class="none" url="../category/list?category_id={{item.category_id}}">
+						<image mode="widthFix" src="{{item.image.file_path}}"></image>
+					</navigator>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+
+	<!-- 分类样式：一级分类(小图) 11 -->
+	<view class="cate-content" wx:elif="{{ templet.category_style == 11 && list.length > 0 }}">
+		<view class="cate-wrapper cate_style__11">
+			<scroll-view class="clear" scroll-y="true" style="height: {{ scrollHeight - 10 }}px; ">
+				<view class="cate-item" wx:for="{{ list }}" wx:key="this">
+					<navigator hover-class="none" url="../category/list?category_id={{item.category_id}}">
+						<image mode="widthFix" src="{{ item.image.file_path }}"></image>
+						<text class="f-26">{{ item.name }}</text>
+					</navigator>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+
+	<!-- 分类样式：二级分类 20 -->
+	<view class="cate-content " wx:elif="{{ templet.category_style == 20 && list.length > 0 }}">
+		<!-- 顶部一级分类 -->
+		<!-- <view class="acea-row row-between-wrapper selct-top">
+			<text bindtap="selectNav" class="type-nav {{curNav==item.category_id?'selected':''}}" data-id="{{ item.category_id }}" data-index="{{index}}" wx:for="{{list}}" wx:key="cateLeft">{{ item.name }}</text>
+			<image src="./../../images/btn_drop_down_b.png" style="width:32rpx;height:16rpx"></image>
+		</view> -->
+ <!-- 蝌蚪推荐一级分类 -->
+		<scroll-view class="select-top acea-row bro_one" scroll-x="true">
+			<block>
+				<view wx:for="{{list}}" wx:key="cateLeft3" bindtap="selectNav" class="type-nav {{curNav==item.category_id?'selected':''}}" data-id="{{ item.category_id }}" data-index="{{index}}">
+					<text>{{item.name}}</text>
+				</view>
+			</block>
+		</scroll-view>
+		<view class=" dis-flex" wx:if="{{leftNav!=true}}">
+
+			<!-- 左侧 二级分类 -->
+			<scroll-view class="cate-left f-28 " scroll-y="{{ true }}" style="height: {{ scrollHeight }}px; ">
+				<text bindtap="selectLeft" data-id="{{ item.category_id }}" data-index="{{index}}" class="left-type-nav {{leftNav==item.category_id?'selected':''}}" data-list="{{index}}" wx:for="{{list[curIndex].child}}" wx:key="cit">{{ item.name }} </text>
+			</scroll-view>
+
+			<!-- 右侧 商品 -->
+			<scroll-view  bindscrolltolower="bindDownLoad" class="cate-right b-f" scroll-top="{{ scrollTop }}" scroll-y="true" style="height: {{ scrollHeight }}px; width:578rpx;">
+				<view wx:if="{{list[curIndex]}}">
+					<view class="cate-right-cont">
+						<navigator url="../goods/index?goods_id={{item.goods_id}}" class="cate-right-cont-item acea-row row-between-wrapper" wx:for="{{goodsList}}" wx:key="glist">
+							<view class="img-box" style="width:160rpx ; height:160rpx;">
+								<image src="{{item.goods_image}}"></image>
+							</view>
+							<view class="cate-right-cont-right acea-row row-column row-between">
+	
+								<view class="cate-right-cont-title" style="position:relative;">
+									<text class="self-support acea-row row-center-wrapper"  wx:if="{{item.admin_id==10001}}" style="position:absolute;top:4rpx;left:0rpx;" >自营</text>
+									<text class="title f-30 twolist-hidden"space="nbsp"wx:if="{{item.admin_id==10001}}"style="text-indent: 70rpx;">{{item.goods_name}}</text>
+									<text class="title f-30 twolist-hidden"space="nbsp" wx:else>{{item.goods_name}}</text>
+								</view>
+								<view class="cate-right-cont-center acea-row row-middle">
+									<!-- <view class="self-support acea-row row-center-wrapper" wx:if="{{item.admin_id==10001}}">
+										自营
+									</view> -->
+									<view class="discount font-red acea-row row-center-wrapper" wx:for="{{item.coupon_list}}" wx:for-index='index2' wx:if="{{index2<1}}" wx:key="right">{{item.name}}</view>
+								</view>
+								<view class="cate-right-cont-bottom acea-row row-between-wrapper">
+									<view class="font-red">
+										<text >￥</text><text style="font-size:32rpx;">{{item.goods_max_price}}</text>
+										<!-- <text>.00</text> -->
+									</view>
+									<text style="color:#A0A0A0">月销{{item.goods_sales}}件</text>
+								</view>
+							</view>
+						</navigator>
+					</view>
+				</view>
+			</scroll-view>
+
+		</view>
+		<view wx:else>
+			<scroll-view class="cate-right b-f" scroll-top="{{ scrollTop }}" scroll-y="true" style="height: {{ scrollHeight }}px; width:750rpx;" bindscrolltolower="bindDownLoad">
+				<view wx:if="{{list[curIndex]}}">
+					<view class="cate-right-cont">
+						<navigator url="../goods/index?goods_id={{item.goods_id}}" style="width:750rpx;" class="cate-right-cont-item acea-row row-middle" wx:for="{{goodsList}}" wx:key="glist">
+							<view class="img-box" style="width:160rpx ; height:160rpx;margin-right:50rpx;">
+								<image src="{{item.goods_image}}"></image>
+							</view>
+							<view class="cate-right-cont-right acea-row row-column row-between" style="width:440rpx;">
+							
+								<view class="cate-right-cont-title" style="position:relative;">
+									<text class="self-support acea-row row-center-wrapper"  wx:if="{{item.admin_id==10001}}" style="position:absolute;top:4rpx;left:0rpx;" >自营</text>
+									<text class="title f-30 twolist-hidden"space="nbsp"wx:if="{{item.admin_id==10001}}" style="text-indent: 70rpx;">{{item.goods_name}}</text>
+									<text class="title f-30 twolist-hidden"space="nbsp" wx:else>{{item.goods_name}}</text>
+								</view>
+								<view class="cate-right-cont-bottom acea-row row-between-wrapper">
+									<view class="font-red">
+										<text >￥</text><text style="font-size:32rpx;">{{item.goods_max_price}}</text>
+										<!-- <text>.00</text> -->
+									</view>
+								</view>
+								<view class="cate-right-cont-center acea-row row-middle">
+									<!-- <view class="self-support acea-row row-center-wrapper" wx:if="{{item.admin_id==10001}}">
+										自营
+									</view> -->
+									
+									<view class="discount font-red acea-row row-center-wrapper" wx:for="{{item.coupon_list}}" wx:for-index='index2' wx:if="{{index2<1}}" wx:key="right">{{item.name}}</view>
+								</view>
+
+								<view>
+									<text style="color:#A0A0A0">月销{{item.goods_sales}}件</text>
+								</view>
+							</view>
+						</navigator>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view wx:if="{{ !list.length && notcont }}">
+		<view class="yoshop-notcont">
+			<text class="iconfont icon-wushuju"></text>
+			<text class="cont">亲，暂无商品分类哦</text>
+		</view>
+	</view>
+	<view style="height:132rpx;width:750rpx;"></view>
+	<footer pageid="2" style="position:fixed;bottom:0rpx; left:0rpx; z-index:10000;"></footer>
+</view>

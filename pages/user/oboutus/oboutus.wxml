@@ -1,0 +1,22 @@
+<!--pages/user/oboutus/oboutus.wxml-->
+<view class="container">
+    <!-- <view class="top">
+         <view class="top_one">
+            
+         </view>
+         <view class="top_two">
+             <rich-text nodes="{{article_content}}"></rich-text>
+         </view>
+         <view class="top_three">
+            客服电话：0543-123456
+         </view>
+    </view>
+    <view class="bottom">
+         <text class="bottom_one">公司介绍</text>
+         <view class="bottom_two">
+            公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍公司介绍
+         </view>
+    
+    </view> -->
+    <rich-text nodes="{{article_content}}"></rich-text>
+</view>

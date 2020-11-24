@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="qrcode">
+    <image mode="widthFix" src="{{ qrcode }}" catchtap="previewImage"></image>
+
+    
+    <view class="fixed-box acea-row row-center">
+    <button open-type="share" class="sub-btn"> <text space="nbsp">分   享</text></button>
+    <button bindtap="onSavePoster"  class="sub-btn">保存图片</button>
+    </view>
+  </view>
+</view>

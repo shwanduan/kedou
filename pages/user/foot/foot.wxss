@@ -1,0 +1,2 @@
+/* pages/user/foot/foot.wxss */
+@import "../../category/list.wxss";

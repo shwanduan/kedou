@@ -1,0 +1,5 @@
+<!--pages/user/rule/detail.wxml-->
+<!-- <text>pages/user/rule/detail.wxml</text> -->
+  <rich-text  nodes="{{content}}">
+  </rich-text>
+      

@@ -1,0 +1,62 @@
+@import"./balance/log.wxss";
+page, .container {
+  background: #fff;
+}
+
+.space-upper {
+  padding: 150rpx 0;
+  text-align: center;
+}
+
+.wallet-image image {
+  width: 360rpx;
+  height: 261.72rpx;
+}
+
+.wallet-account {
+  margin-top: 20rpx;
+}
+
+.wallet-account_balance {
+  font-size: 52rpx;
+}
+
+.wallet-account_lable {
+  margin-top: 10rpx;
+  color: #cec1c1;
+  font-size: 24rpx;
+}
+
+.space-lower {
+  margin-top: 30rpx;
+  padding: 0 110rpx;
+}
+
+.btn-recharge button.btn-submit {
+  font-size: 30rpx;
+  background: #786cff;
+  border: none;
+  color: white;
+  border-radius: 50rpx;
+  padding: 0 120rpx;
+  line-height: 2.8;
+}
+
+.item-lable {
+  margin-top: 80rpx;
+  font-size: 26rpx;
+  color: rgb(94, 94, 94);
+  padding: 0 100rpx;
+}
+
+.text-grey{
+  color: #AAAAAA;
+}
+
+.top-bg {
+  width: 750rpx;
+  height: 633rpx;
+  position: absolute;
+  top: 0rpx;
+  background: linear-gradient(0deg, #F5F5F5 0%, #E02020 100%);
+}

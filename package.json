@@ -1,0 +1,22 @@
+{
+  "name": "kedou_wx",
+  "version": "1.0.0",
+  "description": "微信小程序",
+  "main": "app.js",
+  "dependencies": {
+    "tim-wx-sdk": "^2.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/chenxiangha/kedoushop-h5.git"
+  },
+  "keywords": [
+    "kedou"
+  ],
+  "author": "王世振",
+  "license": "ISC"
+}

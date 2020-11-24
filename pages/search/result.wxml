@@ -1,0 +1,214 @@
+<view class="container" wx:if="{{is_switch==1}}" >
+	<view class="cont-box">
+		<view class="dis-flex search-input-box acea-row row-between-wrapper">
+			<view class="search-input">
+				<view class="dis-flex search-box">
+					<view class="left">
+						<icon color="rgba(180,180,180,1)" size="15" type="search"></icon>
+					</view>
+					<view class="right acea-row row-middle">
+						<input bindinput="getSearchContent" class="input" disabled="true" value="{{search}}" placeholder="请输入您搜索的商品" placeholderStyle="color:#aba9a9" type="text"></input>
+					</view>
+				</view>
+			</view>
+			<view class="serch-button" bindtap="toBack">
+				<view>取消</view>
+			</view>
+		</view>
+	</view>
+	<view class="result">
+		<view class="top-title acea-row row-between-wrapper">
+			<view class="{{type==0?'active':''}}" bindtap="selectType" data-type="0">
+				全部
+			</view>
+			<view class="{{type==1?'active':''}}" bindtap="selectType" data-type="1">
+				主播
+			</view>
+			<view class="{{type==2?'active':''}}" bindtap="selectType" data-type="2">
+				直播间
+			</view>
+			<view class="{{type==3?'active':''}}" bindtap="selectType" data-type="3">
+				商品
+			</view>
+		</view>
+		<view class="anchor" wx:if="{{userlistsCount>0}}">
+			<view class="result-number acea-row row-middle">
+				总搜索到“{{search}}”相关主播<text space="nbsp"> {{userlistsCount}} </text>个
+			</view>
+			<view class="result-item">
+				<view class="association-anchor ">
+					<view class="anchor-item acea-row row-between-wrapper" wx:for="{{userlists}}" wx:key="user">
+						<view class="acea-row">
+							<view class="headImg">
+								<image src="{{item.header}}" mode=""></image>
+							</view>
+							<view class="">
+								<view class="name">
+									{{item.anchor_name}}
+								</view>
+								<view class="detail">
+									<text>{{item.fans}}粉丝 | {{item.admin_name}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="follow">
+							<view class="already acea-row row-center-wrapper" wx:if="{{item.isok==1}}">
+								已关注
+							</view>
+							<image src="../../images/btn_follow.png" mode="" wx:else></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="acea-row row-center-wrapper more" bindtap="selectType" data-type="1">
+				<text>展开更多</text>
+				<image class="drop-btn" src="../../images/btn_drop_down_w.png" mode=""></image>
+			</view>
+		</view>
+		<view class="live-room" wx:if="{{roomlistsCount>0}}">
+			<view class="result-number acea-row row-middle">
+				总搜索到“{{search}}”相关直播间<text space="nbsp"> {{roomlistsCount}} </text>个
+			</view>
+			<view class="result-item ">
+				<view class="association-live acea-row row-between-wrapper">
+					<view class="live-room-item" wx:for="{{roomlists}}" wx:key="room">
+						<view class="live-room-item-top">
+							<view class="visitors-number acea-row row-middle">
+								<image src="../../images/label_live.png" mode=""></image>
+								<view class="num"><text>{{item.number}} 观众</text></view>
+							</view>
+							<view class="collection acea-row row-middle">
+								<image src="../../images/collect_active.png" mode=""></image>
+								<view class="num"><text>2000</text></view>
+							</view>
+							<image src="{{item.cover_img}}" mode=""></image>
+						</view>
+						<view class="live-room-item-bottom acea-row row-between-wrapper">
+							<view class="">
+								<view class="name">
+									{{item.room_name}}
+								</view>
+								<view class="store acea-row ">
+									<image src="../../images/collect_active.png" mode=""></image>
+									<text style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">铺名字—++</text>
+								</view>
+							</view>
+							<view class="sell acea-row row-column">
+								<image src="../../images/img_product_list_s1.png" mode=""></image>
+								<!-- <text class="price">￥10</text> -->
+							</view>
+						</view>
+					</view>
+					<!-- 
+					<view class="live-room-item">
+						<view class="live-room-item-top">
+							<view class="visitors-number acea-row row-middle">
+								<image src="../../images/label_live.png" mode=""></image>
+								<view class="num"><text>2000 观众</text></view>
+							</view>
+							<view class="collection acea-row row-middle">
+								<image src="../../images/collect_active.png" mode=""></image>
+								<view class="num"><text>2000</text></view>
+							</view>
+							<image src="../../images/img_product_list.png" mode=""></image>
+						</view>
+						<view class="live-room-item-bottom acea-row row-between-wrapper">
+							<view class="">
+								<view class="name">
+									颜值高的锅具只有美丽的外表？
+								</view>
+								<view class="store acea-row ">
+									<image src="../../images/collect_active.png" mode=""></image>
+									<text>店铺名字—++</text>
+								</view>
+							</view>
+							<view class="sell acea-row row-column">
+								<image src="../../images/img_product_list_s1.png" mode=""></image>
+								<text class="price">￥10</text>
+							</view>
+						</view>
+					</view> -->
+				</view>
+
+			</view>
+			<view class="association-anchor " bindtap="selectType" data-type="2">
+				<view class="acea-row row-center-wrapper more">
+					<text>展开更多</text>
+					<image class="drop-btn" src="../../images/btn_drop_down_w.png" mode=""></image>
+				</view>
+			</view>
+		</view>
+		<view class="commodity" wx:if="{{GoodsListCount>0}}">
+			<view class="result-number acea-row row-middle">
+				总搜索到“{{search}}”相关商品<text space="nbsp"> {{GoodsListCount}} </text>个
+			</view>
+			<view class="result-item " wx:for="{{GoodsList}}" wx:key='goods'>
+
+				<navigator url="../goods/index?goods_id={{item.goods_id}}"  class="association-commodity acea-row row-between-wrapper">
+					<view class="commodity-picture">
+						<image src="{{item.goods_image}}" mode=""></image>
+					</view>
+					<view class="acea-row row-column-between" style="height:200rpx; position:relative;">
+							<text class="self-support acea-row row-center-wrapper"  wx:if="{{item.admin_id==10001}}" style="position:absolute;top:4rpx;left:0rpx;" >自营</text>
+						<view class="name" style="text-indent: 70rpx;">
+							{{item.goods_name}}
+						</view>
+						<view class="acea-row row-middle">
+							<!-- <view class="discount acea-row row-center-wrapper" ></view> -->
+							<block wx:for="{{item.coupon_list}}" wx:key="coupon">
+								<view class="selling-full" wx:if="{{index==1}}">{{item.name}}</view>
+							</block>
+							<text>月销{{item.goods_sales}}件</text>
+						</view>
+						<view class="price acea-row row-between-wrapper">
+							<view class="">
+								<text>￥</text><text style="font-size: 32rpx; font-weight: 600;">{{item.goods_price}}</text>
+							</view>
+							<view class="" style="font-weight: bold;color: #000000;font-size: 40rpx;">
+								...
+							</view>
+						</view>
+					</view>
+				</navigator>
+
+			</view>
+			<view class="acea-row row-center-wrapper more" bindtap="selectType" data-type="3">
+				<text>展开更多</text>
+				<image class="drop-btn" src="../../images/btn_drop_down_w.png" mode=""></image>
+			</view>
+		</view>
+		<view class="none-have " wx:if="{{ userlistsCount==0&&roomlistsCount==0&& GoodsListCount==0}}">
+			<view class="result-number acea-row row-middle">
+				总搜索到“{{search}}”相关内容0个
+			</view>
+			<view class="acea-row row-center-wrapper ">
+				<image src="../../images/icon_live2.png" mode=""></image>
+			</view>
+			<view class="acea-row row-center ">
+				<text class="change">没有找到相关的主播、直播间和产品信息 请换一个关键词试试吧</text>
+			</view>
+		</view>
+		<view class="recommend" wx:if="{{ userlistsCount==0&&roomlistsCount==0&& GoodsListCount==0}}">
+			<view class="title acea-row row-middle">
+				<view class="biao-shu"></view>
+				<view class="">
+					为你推荐
+				</view>
+			</view>
+			<view class="recommend-list acea-row row-between-wrapper">
+				<block wx:for="{{recommendList}}" wx:key="recommend">
+					<navigator url="../goods/index?goods_id={{item.goods_id}}" class="recommend-item">
+						<image src="{{item.goods_image}}" mode=""></image>
+						<view class="name" style="text-indent: 70rpx;">
+							{{item.goods_name}}
+						</view>
+						<view class="price">
+							{{item.goods_min_price}}
+						</view>
+					</navigator>
+				</block>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- </view> -->

@@ -1,0 +1,2 @@
+<!--pages/dealer/qrcode/getpower.wxml-->
+<button bindtap="openSetting">打开设置页</button>

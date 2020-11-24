@@ -1,0 +1,10 @@
+	<view class="container">
+		<view class=" acea-row row-between-wrapper set-input" style="margin-top: 20rpx;">
+			<text class="title">昵称</text>
+			<input class="" type="text"  bindinput="inputChange" data-type="name" value="" placeholder="请输入新的昵称" />
+		</view>
+		<view class="msg">
+			2~8位字符，不允许包含特殊字符！
+		</view>
+		<button bindtap="toSub" class="sub-btn">确定</button>
+	</view>

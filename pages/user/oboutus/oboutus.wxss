@@ -1,0 +1,58 @@
+/* pages/user/oboutus/oboutus.wxss */
+page{
+  background: #f8f8f8;
+}
+.top {
+    width: 95%;
+    height: 400rpx;
+  
+    margin:40rpx auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.bottom{
+  width: 95%;
+  height: 400rpx;
+  
+  margin:40rpx auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top_one{
+  width:50%;
+  flex:5;
+  border:1px solid black;
+  align-items: center;
+}
+.top_two{
+  width: 100%;
+  flex:1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2d9a26;
+  justify-content: center;
+  font-size:28rpx;
+}
+.top_three{
+  width:100%;
+  flex:1;
+  
+  align-items: center;
+  color:#848484;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bottom_one{
+  color: #333333;
+  font-size: 28rpx;
+}
+.bottom_two{
+  margin-top: 15rpx;
+  color: #666666;
+}

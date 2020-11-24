@@ -1,0 +1,29 @@
+/* pages/apply/merchant/index.wxss */
+image {
+	width: 740rpx;
+	height: 690rpx;
+	/* margin-top: 284rpx; */
+	position: fixed;
+	top: 300rpx;
+	z-index: 1;
+
+}
+
+.sub-btn-view {
+	position: absolute;
+	bottom: 5vh;
+	left: 25rpx;
+	width: 700rpx;
+
+}
+checkbox .wx-checkbox-input {
+	width: 30rpx;
+	height: 30rpx;
+	border-radius: 50%;
+ }
+
+ .sub-btn{
+	 margin-top: 14rpx;
+	 height: 6vh;
+	 line-height: 6vh;
+	 }

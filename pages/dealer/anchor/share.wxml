@@ -1,0 +1,5 @@
+<!--pages/dealer/anchor/share.wxml-->
+<!-- <text>pages/dealer/anchor/share.wxml</text> -->
+<view class="container acea-row row-center"style="   " >
+<image src="{{qrcode}}"></image>
+</view>

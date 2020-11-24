@@ -1,0 +1,85 @@
+/* pages/user/like/like.wxss */
+@import "../../category/list.wxss";
+.store-name{
+font-size:28rpx;
+color:rgba(40,40,40,1);
+margin-bottom: 10rpx;
+}
+.wh_nowarp{
+  white-space:nowrap;
+}
+page{
+  font-size: 24rpx;
+  background: #f8f8f8;
+  color:#afafaf
+}
+.gary{
+  color:#666666
+}
+
+.new{
+  background: white;
+  
+  width:95%;
+  margin:20rpx auto;
+  
+  
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  height: 300rpx;
+
+}
+.bot{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:100%;
+  border-top:1px solid #f2f2f2
+}
+.show{
+  flex:1;
+  padding:0 20rpx;
+}
+.col{
+  color:#ff783a
+}
+
+.bg_white{
+  background: white;
+}
+
+.normal{
+  width:18%;
+  height:100%;
+}
+.normal_two{
+  width:30%;
+  height:100%;
+}
+.no{
+  width:52%;
+  height: 100%;
+}
+.bor_rad{
+   border-radius: 50%;
+   overflow: hidden;
+}
+.wh_100{
+  width:100%;
+  height: 100%;
+}
+.col_y{
+  color: #ffaf3f;
+  font-size:35rpx
+}
+.col_b{
+  color: #333333;
+  font-size: 27rpx;
+  
+}
+.p_l{
+  padding-left: 10rpx;
+}

@@ -1,0 +1,479 @@
+<view class="container">
+	<!-- 用户信息 -->
+	<view class="user">
+
+		<view class="user-header">
+			<!-- 已登录 -->
+
+			<view wx:if="{{ isLogin }}" class="user-header-cont acea-row row-between-wrapper">
+				<view class="acea-row user-top row-between-wrapperone">
+					<view class="acea-row">
+						<view class="user-header-avatar" bindtap="toUserInfor">
+							<!-- 微信头像 -->
+							<!-- <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data> -->
+							<image src="{{userInfo.avatarUrl}}"></image>
+						</view>
+
+						<view class="user-header-right acea-row row-between row-column ">
+							<!-- 微信昵称 -->
+
+							<!-- <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data> -->
+							<view class="user-header-cont-name">{{userInfo.nickName}}</view>
+							<view class="acea-row" style="margin-top:10px;">
+								<view class="acea-row row-middle">
+									<view style="width:30rpx;height:35rpx;">
+										<image src="../../images/dianhua.png" style="width:100%;height:100%;"></image>
+									</view>
+									<view style="padding:0 10px"> {{userInfo.mobile}}</view>
+								</view>
+
+								<!-- <view class="label" style=" background-image: url('../../images/label_bg_grade_level_1.png'); "></view> -->
+
+								<!-- <view class="label" style=" background-image: url('../../images/label_business.png'); "></view> -->
+							</view>
+							<view class="acea-row" style="margin-top:10px">
+
+								<view class="acea-row row-middle">
+									<view style="width:30rpx;height:35rpx;">
+										<image src="../../images/yue.png" style="width:100%;height:100%;"></image>
+									</view>
+									<view style="padding-left:10px"> 余额: ￥{{userInfo.balance}}</view>
+								</view>
+
+
+
+								<!-- <navigator url="./like/like" >
+							     	<view class="acea-row row-middle" >
+									<view style="width:30rpx;height:35rpx;">
+										<image src="../../images/yue.png" style="width:100%;height:100%;"></image>
+									</view>
+									<view style="padding-left:10px"> 查看明细: ￥{{userInfo.balance}}</view>
+								</view>
+							</navigator> -->
+
+
+								<!-- <view class="label" style=" background-image: url('../../images/label_bg_grade_level_1.png'); "></view> -->
+
+								<!-- <view class="label" style=" background-image: url('../../images/label_business.png'); "></view> -->
+							</view>
+							<!-- <view class="acea-row" style="margin-top:10px">
+							    查看明细
+							</view> -->
+						</view>
+					</view>
+					<!-- <view class="user-top-right"> -->
+					<!-- <image src="../../images/btn_top_setup_w.png" style="margin-right:40rpx;"></image>
+						<image src="../../images/icon_top_w_info.png"></image> -->
+
+					<!-- </view> -->
+
+
+					<!-- 会员等级 -->
+					<view wx:if="{{ userInfo.grade_id > 0 }}" style="align-self:flex-end">
+
+						<view class="user-header-grade dis-flex flex-y-center">
+							<view class="user-grade_icon">
+								<image src="/images/grade_icon.png"></image>
+							</view>
+							<view class="user-grade_name">
+								<text>{{ userInfo.grade.name }}</text>
+							</view>
+
+						</view>
+
+						<view class="user-header-grade dis-flex flex-y-center">
+							<!-- <view class="user-grade_icon">
+								<image src="/images/grade_icon.png"></image>
+							</view> -->
+							<navigator url="./like/like">
+								<view class="user-grade_name">
+									<text>查看明细</text>
+								</view>
+							</navigator>
+
+
+						</view>
+					</view>
+
+
+				</view>
+			</view>
+			<!-- 未登录 -->
+			<view wx:else class="user-header-cont acea-row" catchtap="onLogin">
+				<view class="user-header-avatar">
+					<image src="/images/default-avatar.jpg"></image>
+				</view>
+				<button class="btn-normal" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">授权登录</button>
+				<!-- <view class="user-header-cont-name acea-row row-middle">点击登录</view> -->
+			</view>
+			<!-- <view class="acea-row row-between-wrapper record">
+				<navigator hover-class="none" url="./like/like" class=" acea-row row-column row-middle">
+					<view class="num">{{shoucang}}</view>
+					<view>收藏</view>
+				</navigator>
+				<navigator hover-class="none" url="../dealer/qrcode/qrcode" class=" acea-row row-column row-middle">
+					<view class="num">{{yaoqing}}</view>
+					<view>邀请会员</view>
+				</navigator>
+				<navigator hover-class="none" url="./foot/foot" class=" acea-row row-column row-middle">
+					<view class="num">{{zuji}}</view>
+					<view>足迹</view>
+				</navigator>
+				<navigator hover-class="none" url="./coupon/coupon" class=" acea-row row-column row-middle">
+					<view class="num">{{kaquan}}</view>
+					<view>红包卡券</view>
+				</navigator>
+			</view> -->
+
+		</view>
+		<!-- 占位 -->
+		<view class="user-bg" style="width:750rpx;height: 330rpx;"></view>
+		<!-- 我的钱包 -->
+		<!-- <view class="my-asset dis-flex " style="border:1px solid black;">
+			<view class="acea-row row-center-wrapper" style="width:710rpx;border:1px solid black;"> -->
+		<!-- <view class="asset-left_item ">
+					<form bindsubmit="onTargetWallet" report-submit="true">
+
+						<button formType="submit" class="btn-normal acea-row  row-middle">
+							<view class="img-box">
+								<image src="../../images/icon_balance_pc.png"></image>
+							</view>
+							<view class=" acea-row  row-column">
+								<view class="item-value dis-flex flex-x-left">
+								
+									<text>{{yue}}</text>
+								</view>
+								<view class="item-name acea-row row-middle">
+									<text>余额</text>
+									<image class="next-btn" src="../../images/btn_next_b1.png"></image>
+								</view>
+							</view>
+
+						</button>
+					</form>
+				</view> -->
+		<!-- <view class="asset-left_item ">
+					<form bindsubmit="onTargetPoints" report-submit="true">
+
+						<button formType="submit" class="btn-normal acea-row  row-middle">
+							<view class="img-box">
+								<image src="../../images/icon_commission_pc.png"></image>
+							</view>
+							<view class=" acea-row  row-column">
+								<view class="item-value dis-flex flex-x-left">
+						
+									<text>{{yongjin}}</text>
+								</view>
+								<view class="item-name acea-row row-middle">
+									<text>佣金</text>
+									<image class="next-btn" src="../../images/btn_next_b1.png"></image>
+								</view>
+							</view>
+
+						</button>
+					</form>
+				</view> -->
+		<!-- <view class="asset-left_item">
+        <form bindsubmit="onTargetPoints" report-submit="true">
+          <button formType="submit" class="btn-normal">
+            <view class="item-value dis-flex flex-x-center">
+              <text>{{ isLogin ? userInfo.points : 0 }}</text>
+            </view>
+            <view class="item-name dis-flex flex-x-center">
+              <text>可用{{ setting.points_name }}</text>
+            </view>
+          </button>
+        </form>
+      </view> -->
+		<!-- </view>
+		</view> -->
+
+	</view>
+	<!-- 订单导航栏 -->
+	<view style="padding-left:20px;font-size:15px;">
+		我的库存
+	</view>
+	<view class="order-navbar">
+		<!-- <form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+        <button formType="submit" class="btn-normal">
+          <view class="order-navbar-header dis-flex">
+            <text class="f-30">我的订单</text>
+            <view class="dis-flex flex-y-center">
+              <text class="f-24 col-6">全部订单</text>
+              <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+            </view>
+          </view>
+        </button>
+      </form> -->
+		<view class="order-navbar-footer dis-flex m-top10">
+			<view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrderone" data-type="all" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-between-wrapper row-column" style="border-right:1px solid #e3e3e3;">
+						<!-- <text class="order-navbar__icon iconfont icon-form"></text> -->
+						<image class="order-img" src="../../images/wodekucun.png" style="width:48rpx;height:45rpx;"></image>
+						<text class="order-navbar__name">我的库存</text>
+					</button>
+				</form>
+			</view>
+			<!-- <view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="payment" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-between-wrapper row-column">
+					
+						<image class="order-img" src="../../images/btn_line_order_2.png" style="width:58rpx;height:44rpx;"></image>
+						<text class="order-navbar__name">待付款</text>
+						<text class="order-badge" wx:if="{{orderCount.payment > 0}}">{{orderCount.payment}}</text>
+					</button>
+				</form>
+			</view> -->
+			<view class="order-navbar-item flex-box">
+			
+				<form bindsubmit="onTargetOrder" data-type="received" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-between-wrapper row-column">
+						<!-- <text class="order-navbar__icon iconfont icon-daishouhuo"></text> -->
+						<image class="order-img" src="../../images/kucundingdan.png" style="width:54rpx;height:54rpx;"></image>
+						<text class="order-navbar__name">我的订单</text>
+						<text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
+					</button>
+				</form>
+			</view>
+			<!-- <view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="comment" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-between-wrapper row-column">
+				
+						<image class="order-img" src="../../images/btn_line_evaluate_1.png" style="width:54rpx;height:50rpx;"></image>
+						<text class="order-navbar__name">待评价</text>
+						<text class="order-badge" wx:if="{{orderCount.comment > 0}}">{{orderCount.comment}}</text>
+					</button>
+				</form>
+			</view> -->
+			<!-- <view class="order-navbar-item flex-box">
+				<form bindsubmit="onTargetOrder" data-type="refund" report-submit="true">
+					<button formType="submit" class="btn-normal acea-row row-between-wrapper row-column">
+					
+						<image class="order-img" src="../../images/btn_line_after_sales.png" style="width:48rpx;height:54rpx;"></image>
+						<text class="order-navbar__name">退款/售后</text>
+						<text class="order-badge" wx:if="{{orderCount.refund > 0}}">{{orderCount.refund}}</text>
+					</button>
+				</form>
+			</view> -->
+		</view>
+	</view>
+	<!-- <view class="menus" wx:if="{{userInfo.is_room==1}}"> -->
+	<!-- 菜单列表 -->
+	<!-- <view class="menus-title">
+			直播
+		</view>
+		<view class="menus-list acea-row">
+			<view class="menus-item acea-row row-center-wrapper">
+				<view bindtap="toZhiBo" class="acea-row row-between-wrapper">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_tool_1.png"></image>
+						<text class="menus-item__name  ">开始直播</text>
+					</view>
+				</view>
+			</view> -->
+	<!-- <view class="menus-item acea-row row-center-wrapper">
+				<navigator hover-class="none" url="../coupon/coupon" class="acea-row row-between-wrapper">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_grzx_88_12.png"></image>
+						<text class="menus-item__name  ">邀请主播</text>
+					</view>
+				</navigator>
+			</view>
+			<view class="menus-item acea-row row-center-wrapper">
+				<navigator hover-class="none" url="../coupon/coupon" class="acea-row row-between-wrapper">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_grzx_88_13.png"></image>
+						<text class="menus-item__name  ">我的团队</text>
+					</view>
+				</navigator>
+			</view>
+			<view class="menus-item acea-row row-center-wrapper">
+				<navigator hover-class="none" url="../coupon/coupon" class="acea-row row-between-wrapper">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_grzx_88_14.png"></image>
+						<text class="menus-item__name  ">主播收益</text>
+					</view>
+				</navigator>
+			</view> -->
+	<!-- </view> -->
+	<!-- </view> -->
+	<view class="menus">
+		<!-- 菜单列表 -->
+		<!-- <view class="menus-title">
+			工具与服务
+		</view> -->
+		<view class="menus-list acea-row">
+			<block>
+				<!-- <view class="menus-item acea-row row-center-wrapper" wx:if="{{userInfo.is_room==0}}">				
+					<navigator hover-class="none" url="../apply/index?type=1&status={{userInfo.is_room}}" class="acea-row row-between-wrapper">
+						<view class="acea-row.row-between">
+							<image class="menus-img" src="../../images/btn_tool_1.png"></image>
+							<text class="menus-item__name  ">我要开播 </text>
+						</view>
+					</navigator>
+				</view>
+				<view class="menus-item acea-row row-center-wrapper" wx:if="{{userInfo.is_room==2}}">
+					<view class="acea-row row-between-wrapper" bindtap="showMessage">
+						<view class="acea-row row-middle">
+							<image class="menus-img" src="../../images/btn_tool_1.png"></image>
+							<text class="menus-item__name  ">我要开播 </text>
+						</view>
+
+					</view>
+				</view> -->
+				<view class="menus-item acea-row bor_gray">
+					<navigator hover-class="none" url="./like/live" class="acea-row row-between" style="width:100%;">
+						<view class="acea-row row-middle">
+							<image class="menus-img" src="../../images/wodetuandui.png"></image>
+							<text class="menus-item__name acea-row row-between-wrapper " >我的团队</text>
+						</view>
+						<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+							<view class="f-26 col-9 t-r">
+								<text class="iconfont icon-xiangyoujiantou"></text>
+							</view>
+						</view>
+					</navigator>
+				</view>
+			</block>
+			<!-- <view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="../order/index" class="acea-row row-between" style="width:100%">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/dingdan.png"></image>
+						<text class="menus-item__name  ">我的订单</text>
+					</view>
+					<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						<view class="f-26 col-9 t-r">
+              <text class="iconfont icon-xiangyoujiantou"></text>
+            </view>
+					</view>
+				</navigator>
+			</view> -->
+			<view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="../dealer/qrcode/qrcode" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/yaoqingyouli.png"></image>
+						<text class="menus-item__name  ">邀请好友</text>
+					</view>
+					<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						<view class="f-26 col-9 t-r">
+							<text class="iconfont icon-xiangyoujiantou"></text>
+						</view>
+					</view>
+				</navigator>
+			</view>
+			<!-- acea-row :display:flex wrap-wrap -->
+			<!-- row-center-wrapper:  justify center   align-items:center -->
+			<!-- <view class="menus-item acea-row row-center-wrapper " wx:if="{{is_switch==1}}"> -->
+			<!-- <navigator hover-class="none" url="../apply/index?type=2&status={{userInfo.is_merchant}}" class="acea-row row-between-wrapper" wx:if="{{userInfo.is_merchant==0}}">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/dizhi.png"></image>
+						<text class="menus-item__name  ">我的地址</text>
+					</view>
+				</navigator>
+				<view bindtap="showMessage" class="acea-row row-between-wrapper" wx:elif="{{userInfo.is_merchant==2}}">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/tixianzhanghao.png"></image>
+						<text class="menus-item__name  ">提现账号</text>
+					</view>
+						<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						    >
+						</view>
+				</view> -->
+			<!-- <navigator hover-class="none" url="./store/store" class="acea-row row-between" wx:else>
+					<view class="acea-row">
+						<image class="menus-img" src="../../images/btn_tool_4.png"></image>
+						<text class="menus-item__name  ">进入店铺</text>
+					</view>
+          	<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						    >
+						</view>
+				</navigator> -->
+			<!-- </view> -->
+			<view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="../address/index" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/dizhi.png"></image>
+						<text class="menus-item__name  ">我的地址</text>
+					</view>
+					<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						<view class="f-26 col-9 t-r">
+							<text class="iconfont icon-xiangyoujiantou"></text>
+						</view>
+					</view>
+				</navigator>
+			</view>
+			<view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="./withdraw" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/tixianzhanghao.png"></image>
+						<text class="menus-item__name  ">提现账号</text>
+					</view>
+					<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						<view class="f-26 col-9 t-r">
+							<text class="iconfont icon-xiangyoujiantou"></text>
+						</view>
+					</view>
+				</navigator>
+			</view>
+			<view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="./oboutus/oboutus" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/wode_active.png"></image>
+						<text class="menus-item__name  ">关于我们</text>
+					</view>
+					<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+
+						<view class="f-26 col-9 t-r">
+							<text class="iconfont icon-xiangyoujiantou"></text>
+						</view>
+
+					</view>
+				</navigator>
+			</view>
+			<!-- <view class="menus-item acea-row row-center-wrapper">
+			<button open-type="contact" style="padding:0rpx; background:rgba(0,0,0,0); height:60rpx;" url="" class="acea-row row-between-wrapper">
+				<view class="acea-row row-middle">
+					<image class="menus-img" src="../../images/btn_tool_8.png"></image>
+					<text class="menus-item__name   " style="height:60rpx;">平台客服</text>
+				</view>
+			 
+			</button>
+		</view> -->
+			<!-- <view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="./setting/setting" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_tool_9.png"></image>
+						<text class="menus-item__name  ">系统设置</text>
+					</view>
+						<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						    >
+						</view>
+				</navigator>
+			</view> -->
+			<!-- <view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="./news/news" class="acea-row row-between" style="width:100%;">
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_grzx.png"></image>
+						<text class="menus-item__name  ">消息中心</text>
+					</view>
+
+				</navigator>
+			</view> -->
+			<!-- <view class="menus-item acea-row bor_gray">
+				<navigator hover-class="none" url="./helpList" class="acea-row row-between" style="width:100%;"> 
+					<view class="acea-row row-middle">
+						<image class="menus-img" src="../../images/btn_tool_10.png"></image>
+						<text class="menus-item__name  ">帮助中心</text>
+					</view>
+          	<view class="acea-row row-middle " style="color:#f6f6f6;font-size:30px">
+						    >
+						</view>
+				</navigator>
+			</view> -->
+		</view>
+	</view>
+
+	<view style="height:132rpx;width:750rpx;"></view>
+	<footer pageid="5" style="position:fixed;bottom:0rpx; left:0rpx; z-index:10000;"></footer>
+</view>

@@ -1,0 +1,31 @@
+/* pages/user/userInfor/change-phone.wxss */
+@import "./userInfor.wxss";
+.step-title{
+		height: 151rpx;
+		padding:0 120rpx ;
+	}
+	.active .yuan{
+		background: rgba(255, 0, 66, 1);
+	}
+	.active {
+		color: #FF0042;
+	}
+	.yuan {
+		width: 60rpx;
+		height: 60rpx;
+		background:rgba(170,170,170,1);
+		border-radius:50% ;
+		color: #FFFFFF;
+		margin-right:20rpx ;
+	}
+	.get-btn{
+		width:180rpx;
+		height:68rpx;
+		border-radius:8rpx;
+		border:1px solid rgba(255,0,66,1);
+		}
+		.msg-title{
+			margin-top: 76rpx;
+			padding-left: 30rpx;
+			font-size: 28rpx ;
+		}

@@ -1,0 +1,80 @@
+<!--pages/school/details/chat.wxml-->
+<!-- <text>pages/school/details/chat.wxml</text> -->
+<view class="weiliao">
+
+	<view class="weiliao-item" bindtap="toChat" data-id="{{item.id}}">
+		<view class="weiliao-head acea-row row-between-wrapper">
+			<view class="acea-row">
+				<image class="weiliao-head-img" src="{{item.userInfo.avatarUrl}}"></image>
+				<view class="acea-row row-column row-center">
+					<view class="name">{{detail.userInfo.nickName}}</view>
+					<view class="time">{{detail.create_time}}</view>
+				</view>
+			</view>
+			<view class="follow">
+				<view class="already acea-row row-center-wrapper" wx:if="{{detail.isok==1}}">
+					已关注
+				</view>
+				<image src="../../images/btn_follow.png" mode="" wx:else></image>
+			</view>
+		</view>
+		<view class="weiliao-title">{{detail.content}}</view>
+		<view class="weiliao-img-list">
+			<block wx:for="{{detail.imgs}}" wx:key="weiliaoimg">
+				<image src="{{item}}" class="weiliao-img" mode="aspectFill"></image>
+			</block>
+		</view>
+		<view>
+			<!-- <video></video> -->
+		</view>
+
+		<view class="weiliao-footer acea-row row-between-wrapper">
+			<view class="acea-row">
+				<view class="acea-row row-center-wrapper" style="flex:1">
+					<!-- <image class="weiliao-footer-img" src="../../../images/btn_sxy_32_1.png"></image> -->
+					<text>转发</text>
+					<!-- <text>{{detail.forward_count}}</text> -->
+					<text>0</text>
+				</view>
+				<view class="acea-row row-center-wrapper" style="flex:1;margin-left:80rpx;">
+					<!-- <image class="weiliao-footer-img" src="../../../images/btn_sxy_32_2.png"></image> -->
+
+					<text>评论</text>
+					<text>{{detail.comment_count}}</text>
+				</view>
+			</view>
+			<view class="acea-row row-center-wrapper" style="flex:1" catchtap="like" data-id="{{item.id}}" data-like="{{item.is_like}}">
+				<!-- <image class="weiliao-footer-img" src="../../../images/btn_sxy_32_3.png" wx:if="{{item.is_like==0}}"></image>
+				<image class="weiliao-footer-img" src="../../../images/btn_sxy_33_3.png" wx:else></image> -->
+				<text>赞</text>
+				<text>{{detail.like_count}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="commentlists">
+		<view class="comment-item acea-row row-between" wx:for="{{commentlists.data}}"wx:key="comment" >
+			<view>
+				<image class="weiliao-head-img" src="{{item.userInfo.avatarUrl}}"></image>
+			</view>
+			<view class="acea-row row-column" style="flex: 1;">
+				<view class="name">{{item.userInfo.nickName}} </view>
+				<view class="content">{{item.content}}</view>
+				<view class="acea-row row-between-wrapper">
+					<view class="time">{{item.create_time}}</view>
+					<view> 
+					<!-- <image class="weiliao-footer-img" src="../../../images/btn_sxy_32_1.png"></image>
+					<image class="weiliao-footer-img" src="../../../images/btn_sxy_32_2.png"></image> -->
+					<view class="acea-row row-center-wrapper" catchtap="like" data-id="{{item.id}}" data-like="{{item.is_like}}">
+					<image class="weiliao-footer-img " src="../../../images/btn_sxy_32_3.png" wx:if="{{item.is_like==0}}"></image>
+						<image class="weiliao-footer-img" src="../../../images/btn_sxy_33_3.png" wx:else></image> 
+					</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<form bindsubmit="bindFormSubmit" class=" acea-row row-between-wrapper " style="position:fixed;bottom:0rpx;">
+		<textarea bindblur="bindTextAreaBlur" value='{{inputValue}}' auto-height placeholder="自动变高" cursor-spacing="0" show-confirm-bar="false" name="textarea" />
+		<button form-type="submit"> 提交 </button>
+	</form>
+</view>

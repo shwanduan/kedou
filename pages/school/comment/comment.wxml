@@ -1,0 +1,22 @@
+<view class="container p-bottom" wx:if="{{isLogin}}">
+	<view class="dis-flex content-row">
+		<textarea bindinput="contentInput" data-index="{{index}}" maxlength="2000" placeholder="这一刻你的想法" placeholderStyle="color:#ccc"></textarea>
+	</view>
+	<view class="image-list">
+		<view class="list-title">上传图片</view>
+	
+			<view class="image-preview" wx:for="{{formData[0].image_list}}" wx:for-index="imageIndex" wx:for-item="imagePath" wx:key="this">
+				<text class="image-delete iconfont icon-shanchu" catchtap="deleteImage"  data-image-index="{{imageIndex}}"></text>
+				<image mode="aspectFill" src="{{ imagePath }}"></image>
+			</view>
+			<view bindtap="chooseImage" class="image-picker dis-flex flex-dir-column flex-x-center flex-y-center" data-index="{{index}}" wx:if="{{ !formData[index].image_list || formData[index].image_list.length < 6 }}">
+				<text class="choose__icon iconfont icon-tubiao_xiangji"></text>
+				<text class="choose__text">上传图片</text>
+			</view>
+	</view>
+	<view class="flow-fixed-footer b-f">
+		<view class="flow-btn f-32">
+			<view catchtap="shangchuan">确认提交</view>
+		</view>
+	</view>
+</view>

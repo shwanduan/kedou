@@ -1,0 +1,27 @@
+/* pages/user/like/live.wxss */
+.select-title{
+  width:750rpx;
+height:100rpx;
+background:rgba(255,255,255,1);
+font-size: 28rpx;
+padding:  0 30rpx;
+}
+
+.select-title .active{
+  font-weight: 800;
+  font-size: 32rpx;
+  border:1rpx solid #FFFF0042;
+}
+.room-list{
+  background: #FFF;
+  border-radius: 20rpx 20rpx 0 0;
+  margin-top: 30rpx;
+}
+.room-item{
+  height: 120rpx;
+  padding: 0 30rpx;
+}
+
+page{
+  background-color: #f8f8f8;
+}

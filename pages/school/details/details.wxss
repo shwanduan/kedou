@@ -1,0 +1,13 @@
+/* pages/school/details/details.wxss */
+@import "/wxParse/wxParse.wxss";
+.article-title{
+   width:676rpx;
+height:116rpx;
+font-size:52rpx;
+color:rgba(40,40,40,1);
+line-height:60rpx;
+margin-bottom: 40rpx;
+}
+.container{
+   padding: 40rpx 30rpx;
+}

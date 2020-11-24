@@ -1,0 +1,30 @@
+<view wx:if="{{ show }}" class="zan-noticebar {{ hasRightIcon ? 'zan-noticebar--within-icon' : '' }}" style="color: {{ color }};background-color: {{ backgroundColor }}; padding: {{ paddingTop }}px 10px;">
+  <view wx:if="{{ leftIcon }}" class="zan-noticebar__left-icon">
+    <image class="image" src="{{ leftIcon }}" />
+  </view>
+  <view class="zan-noticebar__content-wrap" style="">
+    <view class="zan-noticebar__content" animation="{{ animationData }}" style="color:#ff6c20">
+      <!-- {{ text }} -->
+      <swiper style="width:250px;height:16px;overflow:hidden" autoplay="true" vertical="true" interval display-multiple-items="1" circular="true" easing-function="linear" duration="300">
+            <swiper-item style="width:250px;height:16px" wx:for="{{newdata}}"  wx:key="gotodetail" bindtap="gotodetail" data-id="{{item.article_id}}" >
+                   {{item.article_title}}
+            </swiper-item>
+             <!-- <swiper-item style="width:250px;height:16px">
+                   22222222222222222
+            </swiper-item>
+              <swiper-item style="width:250px;height:16px">
+                   333333333333333
+            </swiper-item> -->
+      </swiper>
+    </view>
+    
+  </view>
+
+  <block wx:if="{{ mode }}">
+    <zan-icon wx:if="{{ mode === 'closeable' }}" class="zan-noticebar__right-icon" type="close" bindtap="_handleButtonClick" />
+    <navigator wx:if="{{ mode === 'link' }}" url="{{ url }}" open-type="{{ openType }}">
+         <zan-icon class="zan-noticebar__right-icon" type="arrow" />
+    </navigator>
+  </block>
+
+</view>

@@ -1,0 +1,161 @@
+<!--pages/apply/apply.wxml-->
+<view class="container" wx:if="{{is_switch==1}}">
+	<form bindsubmit="zhiBoToApply" report-submit="true" wx:if="{{type==1 || type==2}}">
+		<view class="input-list mar-20">
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					直播昵称
+				</view>
+				<input class="text-right" type="text" name="name" value="{{name}}" placeholder="请输入直播昵称" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					姓名
+				</view>
+				<input class="text-right" type="text" name="nick_name" value="{{nickName}}" placeholder="请输入姓名" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					证件类型
+				</view>
+				<input class="text-right" type="text" value="身份证" disabled="true" placeholder="请输入证件类型" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					证件号码
+				</view>
+				<input bindinput="cardNumInput" class="text-right" type="text" data-name="card" name="card" value="{{card}}" placeholder="请输入证件号码" />
+			</view>
+			<!-- <view class="acea-row row-between-wrapper input-item " style="height: 160rpx; line-height: 96rpx;">
+				<view class="title">
+					关联店铺
+				</view>
+				<textarea class="acea-row" style="width: 556rpx; height:160rpx;background:rgba(255,255,255,1);" value=""
+				 placeholder="" /> 
+
+				</view> -->
+			<picker range='{{storeUser}}' value='{{index}}' bindchange='bindPickerChange' range-key="user_name" data-id='{{storeUser[index].store_user_id}}' wx:if="{{type==2}}">
+				<view class="acea-row row-between-wrapper input-item ">
+					<view>关联店铺</view>
+					<view class='picker acea-row row-right' style="display:flex;flex:1;">{{storeUser[index].user_name}}</view>
+				</view>
+			</picker>
+			<view class="acea-row bg-white input-item" style="height:auto;">
+				<view class="title " style="width:100%;height:60rpx;">
+					手持证件
+				</view>
+				<!-- <view> -->
+				<view class="acea-row row-between-wrapper" style="width:100%;">
+					<view class="acea-row row-column row-middle" bindtap="uploadImage" data-type="1">
+						<text>人像面上传</text>
+						<image class="shangchuan" src="{{cardZheng==''?'./../../images/btn_upload_sfz1.png':cardZheng}}" mode=""></image>
+					</view>
+					<view class=" acea-row row-column row-middle" bindtap="uploadImage" data-type="2">
+						<text>国徽面上传</text>
+						<image class="shangchuan" src="{{cardFan==''?'./../../images/btn_upload_sfz2.png':cardFan}}" mode=""></image>
+					</view>
+				</view>
+				<!-- </view> -->
+
+			</view>
+		</view>
+		<button class="sub-btn" formType="submit" disabled="{{disabled}}">提交申请</button>
+	</form>
+	<form bindsubmit="shangHuToApply" report-submit="true" wx:if="{{type==3 || type==4}}">
+		<view class="input-list mar-20">
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					店铺名称
+				</view>
+				<input class="text-right" type="text" name="shop_name" placeholder="请输入店铺名称" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item">
+				<view class="title">
+					联系人
+				</view>
+				<input class=" text-right" type="text" name="person" placeholder="请输入姓名" />
+			</view>
+
+
+			<view class="acea-row row-between-wrapper input-item" wx:if="{{type==3}}">
+				<view class="title">
+					证件类型
+				</view>
+				<input class=" text-right" type="text" value="身份证" disabled="true" placeholder="请输入证件类型" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item " wx:if="{{type==3}}">
+				<view class="title">
+					证件号码
+				</view>
+				<input bindinput="cardNumInput" class=" text-right" type="text" value="{{credit_code}}" data-name="credit_code" name="credit_code" placeholder="请输入证件号码" />
+			</view>
+
+			<view class="acea-row row-between-wrapper input-item" wx:if="{{type==4}}">
+				<view class="title">
+					联系电话
+				</view>
+				<input class=" text-right" type="text" name="tel" placeholder="请输入联系电话" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item" wx:if="{{type==4}}">
+				<view class="title">
+					企业全称
+				</view>
+				<input class=" text-right" type="text" name="company_name" placeholder="请输入企业全称" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item" wx:if="{{type==4}}">
+				<view class="title">
+					统一社会信用代码
+				</view>
+				<input bindinput="cardNumInput" class=" text-right" type="text" value="{{credit_code}}" data-name="credit_code" name="credit_code" placeholder="请输入证件号码" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item" wx:if="{{type==4}}">
+				<view class="title">
+					法人/负责人
+				</view>
+				<input class=" text-right" type="text" name="legal_person" placeholder="请输入法人/负责人" />
+			</view>
+			<view class="acea-row row-between-wrapper input-item " style="height: 220rpx; line-height: 96rpx;">
+				<view class="title">
+					企业地址
+				</view>
+				<view style="width: 556rpx; height:160rpx;background:rgba(255,255,255,1);">
+					<textarea class="acea-row text-content" name="company_address" value="" placeholder="" style="height:100%;" />
+					</view>
+
+      </view>
+
+      <view class="mar-20">
+         <view class="acea-row row-between-wrapper  bg-white input-item">
+          <view class="title">
+            营业执照
+          </view>
+         
+          <view class=" acea-row row-middle" bindtap="uploadImage" data-type="3">
+            <image class="zhizhao" src="./../../images/btn_upload_yyzz.png" mode=""></image>
+            <text>营业执照上传</text>
+          </view>
+        </view>
+        <view wx:if="{{cardYing}}" class="acea-row row-right"style="padding-right:50rpx;">
+        <image src="{{cardYing}}" class="shangchuan"></image>
+        </view>
+        <view class="acea-row bg-white input-item" style="height:auto;">
+          <view class="title " style="width:100%;height:60rpx;">
+            手持证件
+          </view>
+          <view class="acea-row row-between-wrapper" style="width:100%;">
+          <view class="acea-row row-column row-middle" bindtap="uploadImage" data-type="1">
+            <text>人像面上传</text>
+            <image class="shangchuan" src="{{cardZheng==''?'./../../images/btn_upload_sfz1.png':cardZheng}}" mode=""></image>
+          </view>
+          <view class=" acea-row row-column row-middle" bindtap="uploadImage" data-type="2">
+            <text>国徽面上传</text>
+            <image class="shangchuan" src="{{cardFan==''?'./../../images/btn_upload_sfz2.png':cardFan}}" mode=""></image>
+          </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button class="sub-btn" formType="submit" disabled="{{disabled}}">提交申请</button>
+  </form>
+</view>

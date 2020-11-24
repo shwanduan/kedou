@@ -1,0 +1,20 @@
+<!--pages/user/helpList.wxml-->
+
+
+<view class="container">
+
+	<view class="nav-list">
+		<navigator url="../user/help/index" class="nav-item acea-row row-between-wrapper">
+			<view>常见问题</view>
+			<image class="btn-next" src="../../images/btn_next_xi_gray1.png"></image>
+		</navigator>
+		<navigator url="./opinion/opinion" class="nav-item acea-row row-between-wrapper">
+			<view>意见反馈</view>
+			<image class="btn-next" src="../../images/btn_next_xi_gray1.png"></image>
+		</navigator>
+		<navigator url="../user/rule/rule" class="nav-item acea-row row-between-wrapper">
+			<view>平台规则</view>
+			<image class="btn-next" src="../../images/btn_next_xi_gray1.png"></image>
+		</navigator>
+	</view>
+</view>

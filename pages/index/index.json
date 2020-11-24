@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "diy-component": "/components/diy/index",
+    "footer": "/components/footer/footer"
+  },
+  "navigationStyle":"custom"
+}

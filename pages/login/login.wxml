@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="wechatapp">
+    <view class="header">
+      <open-data class="" type="userAvatarUrl"></open-data>
+    </view>
+  </view>
+  <view class="auth-title">申请获取以下权限</view>
+  <view class="auth-subtitle">获得你的公开信息（昵称、头像，手机号等）</view>
+  <view class="login-btn">
+  	<button class="btn-normal" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" wx:if="{{getUser}}">获取信息</button>
+   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"wx:else >获取手机号</button>
+   
+  </view>
+  <view class="login-btn">
+   
+  </view>
+   
+  <view class="no-login-btn">
+    <button class="btn-normal" catchtap="onNotLogin">暂不登录</button>
+  </view>
+</view>

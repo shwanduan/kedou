@@ -1,0 +1,6 @@
+/* pages/user/store/store.wxss */
+@import "./../index.wxss";
+.active{
+  color: red;
+  font-size: 28rpx;
+}

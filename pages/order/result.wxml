@@ -1,0 +1,39 @@
+<!--pages/order/result.wxml-->
+<!-- <text>pages/order/result.wxml</text> -->
+<view class="container">
+<view class="result-top">
+  <view class="acea-row row-center-wrapper image-box">
+  <image src="./../../images/icon_success.png" ></image>
+  </view>
+  <view class="acea-row row-center-wrapper text-result">支付成功 </view>
+  <view  class="acea-row row-center-wrapper money" ><text style="">￥</text><text style="font-size:60rpx;">{{order.pay_price}}</text> </view>
+  <view class="acea-row row-between-wrapper title-item">
+  <text class="title">支付方式</text>  
+  <text>{{order.pay_type.text}}</text>
+  </view>
+   <view class="acea-row row-between-wrapper title-item">
+  <text class="title">收款方</text>  
+  <text>济宁苏巧巧生物科技有限公司</text>
+  </view>
+</view>
+	<view class="recommend" >
+			<view class="title acea-row row-middle">
+				<view class="biao-shu"></view>
+				<view class="">
+					为你推荐
+				</view>
+			</view>
+			<view class="recommend-list acea-row row-between-wrapper">
+				<view class="recommend-item" wx:for="{{recommendList}}" wx:key="list">
+					<image src="{{item.goods_image}}" mode=""></image>
+					<view class="name">
+						{{item.goods_name}}
+					</view>
+					<view class="price">
+						￥{{item.goods_min_price}}
+					</view>
+				</view>
+				
+			</view>
+		</view>
+</view>

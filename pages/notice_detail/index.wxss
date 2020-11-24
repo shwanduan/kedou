@@ -1,0 +1,24 @@
+/* pages/notice_detail/index.wxss */
+
+.box{
+  width:100%;
+   
+}
+.pad_top{
+  padding-top:30px
+}
+.pad_left_right{
+  padding:0 20rpx;
+}
+.flex_end{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.font_23{
+  font-size: 23px;
+}
+.font_color{
+
+  color:#999999
+}

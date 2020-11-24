@@ -1,0 +1,106 @@
+<view class="room-bg">
+	<view class="room-content">
+
+		<room-header bind_init="_initComponent" liveconfig="{{liveconfig}}" time="{{time}}" fans="{{ fans }}" couponNum="{{couponNum}}" redList="{{redList}}" redNum="{{redNum}}"  showRed="{{showRed}}"  userInfo="{{ userInfo }}" attentioned="{{attentioned}}" groupinfo="{{ groupInfo }}" ownerInfo="{{ ownerInfo }}" data-wpy-evt="5-0" bind:attention="_proxy" bind:coupon="_proxy" bind:quitGroup="_proxy"></room-header>
+
+
+		<chatroom bind_init="_initComponent" message="{{ messageQueen }}" class="chatroom"></chatroom>
+
+
+		<room-bottom bind_init="_initComponent" isTimReady="{{isTimReady}}" isAnchor="{{isAnchor}}" data-wpy-evt="5-2" bind:send-message="_proxy" bind:like="_proxy" bind:showGift="_proxy" bind:showgoods="_proxy" class="room-bottom"></room-bottom>
+
+
+		<gifts bind_init="_initComponent" animation="{{ animation }}" data-wpy-evt="5-7" bind:hideGift="_proxy" bind:sendgift="_proxy" class="gifts"></gifts>
+
+
+		<goods-list bind_init="_initComponent" animation="{{ animation2 }}" goods="{{ goods }}" data-wpy-evt="5-9" bind:hidegoods="_proxy" bind:buy="_proxy" class="goodslist"></goods-list>
+
+
+		<gift-animation bind_init="_initComponent" wx:if="{{hasgift}}" avatar="{{giftAvatar}}" nick="{{giftNick}}" data-wpy-evt="5-11" bind:hideani="_proxy" class="gift-animation"></gift-animation>
+
+
+		<coupon bind_init="_initComponent" couponList="{{couponList}}" wx:if="{{hascoupon}}" data-wpy-evt="5-12" bind:hidecoupon="_proxy" bind:usecoupon="_proxy" class="coupon"></coupon>
+		<red-pack time="{{time}}"  received="{{received}}" receivedMoney ="{{receivedMoney}}" ownerInfo="{{ ownerInfo }}" redList="{{redList}}" bind_init="_initComponent" wx:if="{{hasredpack}}" data-wpy-evt="5-13" bind:hideredpack="_proxy" bind:useredpack="_proxy" ></red-pack>
+	<button open-type="share" class="acea-row row-center-wrapper" style="z-index:2; position: absolute;top: 250rpx;right: 20rpx;margin-right: 20rpx;width:54rpx;height:54rpx;border-radius:50%; background:rgba(40,40,40,0.28);padding:0;" data-wpy-evt="5-21" bind:tap="_proxy">
+		<image src="../../images/btn_share_w.png" style="width:36rpx;height:36rpx;"></image>
+	</button>
+	</view>
+	<live-player src="{{play_url}}" wx:if="{{ live_status =='101' }}" mode="RTC" autoplay id="video-livePusher" beauty="9" object-fit="fillCrop" whiteness="9" data-wpy-evt="5-14" bind:statechange="_proxy" bind:error="_proxy" style="width: 100vw; height: 100vh;" class="live-player"></live-player>
+	<no-owner bind_init="_initComponent" wx:else ownerInfo="{{ ownerInfo }}"></no-owner>
+<!-- <view class="sendRedPacket " style="  position: absolute;width: 100vw;height:100vh;top: 0;z-index: 1008;left: 0;" wx:if="{{showRed}}">
+	<view data-wpy-evt="17-0" catch:tap="_proxy" class="close">
+			</view>
+			<view> 有新红包</view>
+	</view> -->
+	
+	
+	<!-- 确认购买弹窗 -->
+	<zan-popup show="{{ showBottomPopup }}" type="bottom" bindclose="onToggleTrade">
+		<view class="popup__trade">
+			<!-- 关闭按钮 -->
+			<view class="trade-close dis-flex flex-x-center flex-y-center" catchtap="onToggleTrade">
+				<text class="iconfont icon-close f-26"></text>
+			</view>
+			<!-- 主体信息 -->
+			<view class="trade-main">
+				<view class="goods-info dis-flex">
+					<!-- 图片名称 -->
+					<view class="goods-image" catchtap="onPreviewSkuImage">
+						<image src="{{ skuCoverImage }}"></image>
+					</view>
+					<view class="right flex-box">
+						<view class="money-box dis-flex flex-y-end">
+							<!-- 商品价 -->
+							<view class="goods-price">
+								<text class="col-m f-26">￥</text>
+								<text class="goods-price_num col-m f-48">{{ goods_price }}</text>
+							</view>
+							<!-- 划线价 -->
+							<view class="line-price" wx:if="{{line_price > 0}}">
+								<text>￥{{ line_price }}</text>
+							</view>
+						</view>
+						<view class="goods-stock dis-flex">
+							<text class="flex-box f-26 col-7">库存：{{stock_num}}</text>
+						</view>
+					</view>
+				</view>
+				<!-- 规格列表 -->
+				<view class="goods-attr">
+					<!-- 滚动容器 -->
+					<scroll-view class="goods-attr--scroll" scroll-y="{{ true }}">
+						<view class="group-item" wx:for="{{ goodsMultiSpec.spec_attr }}" wx:for-item="attr" wx:for-index="attr_idx" wx:key="this">
+							<view class="tips-text" data-id="{{ attr.group_id }}">{{ attr.group_name }}</view>
+							<view class="spec-item {{ item.checked ? 'cur' : '' }}" wx:for="{{ attr.spec_items }}" wx:for-index="item_idx" wx:key="this" data-attr-idx="{{ attr_idx }}" data-item-idx="{{ item_idx }}" catchtap="onSwitchSpec">
+								{{ item.spec_value }}
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 购买数量 -->
+				<view class="buy_number">
+					<view class="buyNumber f-26">
+						<text>购买数量</text>
+					</view>
+					<view class="select-number">
+						<form bindsubmit="onDecGoodsNumber" report-submit="true">
+							<button formType="submit" class="default {{ goods_num > 1 ? '' : 'disabled' }}" type="default">-</button>
+						</form>
+						<input bindinput="onInputGoodsNum" type="number" value="{{ goods_num }}"></input>
+						<form bindsubmit="onIncGoodsNumber" report-submit="true">
+							<button formType="submit" class="default" type="default">+</button>
+						</form>
+					</view>
+				</view>
+			</view>
+			<!-- 底部操作栏 -->
+			<view class="footer-fixed f-30">
+				<block wx:if="{{stock_num > 0}}">
+					<view class="order-number" catchtap="onConfirmSubmit" data-type="addCart">加入购物车</view>
+					<view class="order-bt" catchtap="onConfirmSubmit" data-type="buyNow"> 立即购买</view>
+				</block>
+				<view class="default-btn" wx:else>暂无现货</view>
+			</view>
+		</view>
+	</zan-popup>
+</view>

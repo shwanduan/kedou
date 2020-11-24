@@ -1,0 +1,43 @@
+/* pages/apply/select.wxss */
+	.nav-item,.title,.select-list{
+		padding: 0 30rpx;
+	}
+.title{
+		height: 94rpx;
+		line-height: 94rpx;
+font-size:24rpx;
+color:rgba(160,160,160,1);
+}	
+.select .select-item{
+	width:340rpx;
+	height:240rpx;
+	background:rgba(255,255,255,1);
+	border-radius:24rpx;
+}
+.select .select-icon{
+	width: 60rpx;
+	height: 54rpx;
+	margin-bottom: 32rpx;
+}
+.btn-next{
+	margin-left: 20rpx;
+	width:15rpx;
+	height:24rpx;
+}
+.nav-item{
+	width:750rpx;
+	height:120rpx;
+	background:rgba(255,255,255,1);
+  	font-size:32rpx;
+	font-weight: 600;
+	color:rgba(40,40,40,1);
+	margin-bottom: 2rpx;
+}
+
+.tip-content{
+	padding: 20rpx 30rpx;
+	color:rgba(160,160,160,1);
+	line-height:36rpx;
+	background:rgba(255,255,255,1);
+	margin-bottom: 20rpx;
+}

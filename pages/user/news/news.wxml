@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="help " wx:for="{{list}}" wx:key="this" bindtap="clickTitle" data-select="{{index}}">
+    <view class="title  b-f acea-row row-between-wrapper">
+    <view class=" acea-row row-middle" style="width:600rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+      <text class="h4">{{item.title}}</text>
+    </view>
+       <image src="../../../images/btn_drop_down_b.png" style="width:32rpx;height:16rpx;transform:rotate(270deg);"  wx:if="{{!item.selected}}"></image>
+      <image src="../../../images/btn_drop_down_b.png" style="width:32rpx;height:16rpx;"  wx:if="{{item.selected}}"></image>
+    </view>
+    <view class="content  b-f" wx:if="{{item.selected}}">
+      <text class="p">{{item.content}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+.help {
+    border-bottom: 1px solid #f6f6f9;
+}
+
+.help .h4 {
+    font-size: 32rpx;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.help .p {
+    font-size: 26rpx;
+    color: #666;
+}
+.title{
+    width:750rpx;
+height:120rpx;
+font-size: 32rpx;
+margin-bottom: 1rpx;
+padding:0 30rpx;
+}
+.content{
+    width:750rpx;
+    padding: 18rpx 30rpx 42rpx 30rpx;
+    /* color: #FFA0A0A0; */
+    margin-bottom: 40rpx;
+}

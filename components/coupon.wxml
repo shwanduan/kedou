@@ -1,0 +1,44 @@
+<view class="coupon">
+	<image src="/images/img_bg_grzx.png" class="coupon-img"></image>
+	<view class="info">
+		<view class="title">优惠券来袭</view>
+		<scroll-view scroll-y="true" style="height:880rpx;">
+			<!-- <view wx:for="{{couponList.list}}" wx:key='coupon'> -->
+			<!-- <view>{{item.name}}</view>
+				<button data-wpy-evt="15-0" bind:tap="_proxy" class="btn" data-id="{{item.coupon_id}} " disabled="{{item.is_receive}}">马上使用</button> -->
+			<view class="coupon-list" wx:if="{{ couponList.list.length }}">
+				<view class="coupon-item" wx:for="{{ couponList.list }}" wx:key="this" data-wpy-evt="15-0" bind:tap="_proxy" data-id="{{item.coupon_id}} ">
+					<view class="item-wrapper ">
+						<view class="coupon-type {{index%2 ==0?'coupon-type-old': 'coupon-type-new'}}">{{ item.coupon_type.text }}</view>
+						<view class="middle-lump"></view>
+						<!-- <view class="tip dis-flex flex-dir-column flex-x-center color__{{ item.state.value ? item.color.text : 'gray' }}"> -->
+						<view class="tip dis-flex flex-dir-column flex-x-center color__red acea-row row-middle">
+							<view wx:if="{{ item.coupon_type.value == 10 }} ">
+								<text class="f-30">￥</text>
+								<text class="money">{{ item.reduce_price }}</text>
+							</view>
+							<text class="money" wx:if="{{ item.coupon_type.value == 20 }}">{{ item.discount }}折</text>
+							
+						</view>
+						<!-- <view class="split-line"></view> -->
+						<view class="content dis-flex flex-dir-column flex-x-between">
+							<view class="title">{{ item.name }}</view>
+							<view class="bottom dis-flex flex-y-center">
+								<view class="time flex-box">
+                                <text class="pay-line">满{{ item.min_price }}元可用</text>
+									<!-- <text class="f-24">{{ item.start_time.text }}~{{ item.end_time.text }}</text> -->
+								</view>
+								<view class="state">
+									<text class="f-24">{{ item.state.text }}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- </view> -->
+		</scroll-view>
+		<!-- <view class="desc">平台送你一张优惠券</view> -->
+	</view>
+	<image src="/images/failure.png" data-wpy-evt="15-1" bind:tap="_proxy" class="close"></image>
+</view>

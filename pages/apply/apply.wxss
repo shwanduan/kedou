@@ -1,0 +1,45 @@
+/* pages/apply/apply.wxss */
+	.mar-20{
+		margin-top: 20rpx;
+}
+.input-item{
+	width:710rpx;
+	height:98rpx;
+	background:rgba(255,255,255,1);
+	padding: 0 30rpx;
+	margin-bottom: 2rpx;
+}
+.input-item .title{
+	font-size: 28rpx;
+}
+
+.shangchuan{
+	width:216rpx;
+	height:144rpx;
+	margin-top: 20rpx;
+}
+.input-item input{
+
+	text-align: right;
+	width: 420rpx;
+}
+.input-item .text-right{
+  /* display: flex;
+	flex: 1; */
+	text-align: right;
+    width: 420rpx;
+}
+.zhizhao{
+  width: 42rpx;
+  height: 36rpx;
+}
+.text-content{
+	/* height: 40rpx; */
+	line-height: 40rpx;
+}
+.container{
+	background-color: #FFF;
+}
+.sub-btn{
+	margin-bottom: 140rpx;
+ }

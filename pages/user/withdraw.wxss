@@ -1,0 +1,7 @@
+/* pages/user/withdraw.wxss */
+page{
+  background: #f9f9f9;
+}
+.bor_bto{
+   border-bottom: 1px solid #e3e3e3;
+}

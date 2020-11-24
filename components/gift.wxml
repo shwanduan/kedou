@@ -1,0 +1,2 @@
+
+<image src="/images/icon_live2.png" data-wpy-evt="25-0" bind:tap="_proxy" class="gift"></image>

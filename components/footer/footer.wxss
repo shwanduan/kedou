@@ -1,0 +1,39 @@
+/* components/footer/footer.wxss */
+.text-gray{
+  color: #b8b8b8;
+}
+.text-red{
+  color: #ff833f;
+}
+.cu-bar {
+
+	display: flex;
+	position: relative;
+	align-items: center;
+	min-height: 100rpx;
+  justify-content: space-between;
+  width: 750rpx;
+  font-weight: 600;
+
+}
+
+.cu-bar .action {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+  max-width: 100%;
+  flex: 1;
+  flex-direction: column;
+  padding: 20rpx 0;
+}
+.action-top{
+  margin-bottom: 10rpx;
+}
+.action-img{
+  width: 44rpx;
+  height: 44rpx;
+}
+.bg-white{
+  background: #fff;
+}

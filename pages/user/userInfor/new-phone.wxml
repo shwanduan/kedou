@@ -1,0 +1,36 @@
+<view class="container">
+		<view class="step-title  acea-row row-between-wrapper">
+			<view class=" acea-row row-middle">
+				<view class="yuan acea-row row-center-wrapper">
+						1
+				</view>
+				<view class="">
+					验证原号码
+				</view>
+			</view>
+			<view class=" active acea-row row-middle">
+				<view class="yuan acea-row row-center-wrapper">
+						2
+				</view>
+				<view class="">
+					验证原号码
+				</view>
+			</view>
+		</view>
+		<view class=" acea-row row-between-wrapper set-input" style="margin-top: 2rpx;">
+			<text class="title">原手机号</text>
+			<input class="text-grey" type="text" value="" v-model="phoneNum" disabled="" />
+			<view class="get-btn acea-row row-center-wrapper font-red">发送验证码</view>
+		</view>
+		<view class=" acea-row row-between-wrapper set-input" style="margin-top: 2rpx;">
+			<text class="title">验证码</text>
+			<input class="text-grey" type="text" value="" v-model="code" placeholder="请输入验证码" />
+		</view>
+		<button type="" class="sub-btn">确定</button>
+		<view class="msg-title font-red">
+			温馨提示
+		</view>
+		<view class="msg">
+			手机号码修改成功后需要使用新的手机号码进行登录。
+		</view>
+	</view>
